@@ -13,7 +13,6 @@ export async function GET(request: NextRequest) {
 
 		const playlist = await Playlist.findOne({user_id: userId, _id: playlistId});
 		const dataMusic = await Music.find({type: playlist._id});
-		console.log(dataMusic);
 
 		return NextResponse.json({message: 'Tải danh sách phát thành công', success: true, data: dataMusic}, {status: 201});
 	} catch (error: any) {

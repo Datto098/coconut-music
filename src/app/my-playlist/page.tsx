@@ -70,18 +70,7 @@ export default function UploadPage(params: any) {
 	return (
 		<>
 			<div
-				className={`fixed
-                    top-[0]
-                    left-[0]
-                    bottom-[0]
-                    right-[0]
-                    bg-[var(--brown-rgba)]
-                    backdrop-filter
-                    backdrop-blur-sm 
-                    backdrop-contrast-100
-					transition-all
-					duration-500
-					ease-linear
+				className={`fixed top-[0] left-[0] bottom-[0] right-[0] bg-[var(--brown-rgba)] backdrop-filter backdrop-blur-sm  backdrop-contrast-100 transition-all duration-500 ease-linear
 					${isActiveUploadForm ? 'opacity-[1] z-[10]' : 'opacity-[0] z-[-1]'}
 					`}
 			></div>
@@ -157,7 +146,7 @@ export default function UploadPage(params: any) {
 										singerName={music.name_singer}
 										timeFormat={music.time_format}
 										index={index}
-										type='new-music'
+										type={music.type}
 									/>
 								);
 							})}

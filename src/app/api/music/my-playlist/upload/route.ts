@@ -74,13 +74,13 @@ const uploadFile = async (file: File, type: string) => {
 	const filePath = `${folderPath}/${file.name}`;
 	const pathTxt = filePath.replace(/^\.\/public/, '').replace(/\\/g, '/');
 
-	try {
-		// Check if the folder exists
-		await fs.promises.stat(folderPath);
-	} catch (error) {
-		// Folder doesn't exist, so create it
-		await mkdir(folderPath, {recursive: true});
-	}
+	// try {
+	// 	// Check if the folder exists
+	// 	await fs.promises.stat(folderPath);
+	// } catch (error) {
+	// 	// Folder doesn't exist, so create it
+	// 	await mkdir(folderPath, {recursive: true});
+	// }
 
 	// Write the file to the specified path
 	await writeFile(filePath, buffer);
