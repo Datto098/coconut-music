@@ -68,19 +68,25 @@ const uploadFile = async (file: File, type: string) => {
 		folderName = 'img';
 	}
 
+	// !!! use this when you debug on the localhost
 	// Define the folder path
-	const folderPath = `./public/data-upload/${folderName}`;
+	// const folderPath = `./public/data-upload/${folderName}`;
 	// Define the file path within the folder
-	const filePath = `${folderPath}/${file.name}`;
-	const pathTxt = filePath.replace(/^\.\/public/, '').replace(/\\/g, '/');
+	// const filePath = `${folderPath}/${file.name}`;
+	// const pathTxt = filePath.replace(/^\.\/public/, '').replace(/\\/g, '/');
 
-	// try {
-	// 	// Check if the folder exists
-	// 	await fs.promises.stat(folderPath);
-	// } catch (error) {
-	// 	// Folder doesn't exist, so create it
-	// 	await mkdir(folderPath, {recursive: true});
-	// }
+	// !!! use this when you deploy to vercel
+	const folderPath = `data-upload/${folderName}`;
+	const filePath = `${folderPath}/${file.name}`;
+	const pathTxt = `/data-upload/${folderName}/${file.name}`;
+
+	try {
+		// Check if the folder exists
+		await fs.promises.stat(folderPath);
+	} catch (error) {
+		// Folder doesn't exist, so create it
+		await mkdir(folderPath, {recursive: true});
+	}
 
 	// Write the file to the specified path
 	await writeFile(filePath, buffer);
