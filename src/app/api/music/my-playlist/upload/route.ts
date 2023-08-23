@@ -80,13 +80,13 @@ const uploadFile = async (file: File, type: string) => {
 	const filePath = `${folderPath}/${file.name}`;
 	const pathTxt = `/data-upload/${folderName}/${file.name}`;
 
-	try {
-		// Check if the folder exists
-		await fs.promises.mkdir(folderPath, {recursive: true});
-	} catch (error) {
-		// Folder doesn't exist, so create it
-		await mkdir(folderPath, {recursive: true});
-	}
+	// try {
+	// 	// Check if the folder exists
+	// 	await fs.promises.mkdir(folderPath, {recursive: true});
+	// } catch (error) {
+	// 	// Folder doesn't exist, so create it
+	// 	await mkdir(folderPath, {recursive: true});
+	// }
 
 	// Write the file to the specified path
 	await writeFile(filePath, buffer);
