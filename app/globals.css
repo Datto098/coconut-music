@@ -2,26 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Tilt+Prism&display=swap');
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --brown: #121212;
+  --background: #090909;
+  --purple: #fff;
+  --light-brown: #242424;
+  --light-gray: #242424;
+  --text-secondary: #ffffff80;
+  --text-primary: #fff;
+  --background-dark: #000;
+  --brown-rgba: rgba(51, 50, 53, 0.8);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Nunito', sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--text-primary);
+  font-weight: 500;
+  background-color: var(--background);
+}
+
+ul ol {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-family: 'Nunito', sans-serif;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-family: 'Nunito', sans-serif;
+}
+
+.react-tooltip {
+  user-select: none;
+  cursor: pointer;
+  z-index: 10000;
+  overflow: hidden;
 }

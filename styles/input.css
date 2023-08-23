@@ -1,0 +1,23 @@
+.field-style {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding: 12px 24px;
+    min-width: 350px;
+    width: 100%;
+}
+
+.field-style::placeholder {
+    color: var(--text-secondary);
+    font-size: 14px;
+
+}
+
+.box {
+    border-radius: 200px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--light-gray);
+}

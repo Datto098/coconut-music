@@ -1,0 +1,141 @@
+.play-list .image-music img {
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.play-list .music-name {
+    font-size: 15px;
+}
+
+.play-list .singer-name {
+    font-size: 14px;
+}
+
+.image-music img {
+    transition: all 0.3s ease;
+}
+
+.music:hover .image-music img {
+    transform: scale(1.2);
+}
+
+.music:hover .image-music .player {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.music:hover .more-action {
+    display: flex;
+}
+
+.volume,
+.process {
+    width: 642px;
+    height: 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.volume {
+    width: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.volume-box:hover .volume {
+    width: 100px;
+}
+
+.volume .slider-bar,
+.process .slider-bar {
+    position: relative;
+    border-radius: 15px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--light-gray);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slide-process {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10%;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 1s ease-in-out;
+}
+
+.volume .slide-process {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10%;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.2s linear;
+}
+
+.volume .slider-bar:hover,
+.process .slider-bar:hover {
+    height: 5px;
+}
+
+.slide-process:hover::before {
+    opacity: 1;
+}
+
+.slide-process::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.player-bar {
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.play-list {
+    padding-bottom: 200px;
+}
+
+.play-list .music.active {
+    background-color: var(--light-gray);
+}
+
+.history-card .play,
+.history-card {
+    transition: all 0.3s ease;
+}
+
+.history-card:hover {
+    filter: brightness(1.2);
+}
+
+.history-card .play {
+    transform: translateY(200%);
+    opacity: 0;
+}
+
+.history-card:hover .play {
+    transform: translateY(0);
+    opacity: 1;
+}

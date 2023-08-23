@@ -1,0 +1,69 @@
+.sidebar-left {
+    width: 0px;
+    height: 100vh;
+    position: relative;
+    background-color: var(--brown);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.sidebar-left .menu {
+    width: 100%;
+}
+
+.sidebar-left .menu .menu-item {
+    width: 250px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.sidebar-left .menu .menu-item a {
+    width: 100%;
+    /* display: block; */
+}
+
+.sidebar-left .menu .menu-item:hover {
+    color: var(--text-secondary);
+    background-color: var(--light-gray);
+}
+
+.sidebar-right {
+    width: 0;
+    padding: 0px;
+    background-color: var(--brown);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.sidebar-right .play-list {
+    width: 350px;
+    height: 100%;
+    overflow-y: scroll;
+    padding-bottom: 300px;
+}
+
+/* width */
+.play-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+.play-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+.play-list::-webkit-scrollbar-thumb {
+    background: var(--light-gray);
+}
+
+/* Handle on hover */
+.play-list::-webkit-scrollbar-thumb:hover {
+    background: var(--purple);
+}
+
+.play-list .music {
+    border-radius: 0px;
+}

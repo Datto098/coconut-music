@@ -1,0 +1,67 @@
+.text-field {
+    position: relative;
+}
+
+.text-field label {
+    display: inline-block;
+    font-weight: 500;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    background-color: var(--brown);
+    padding: 1px 5px;
+    font-size: 12px;
+    transform: translateY(-50%);
+    color: var(--purple);
+}
+
+.text-field input {
+    padding: 15px;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid var(--purple);
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    outline: none;
+}
+
+.label-upload {
+    width: 50%;
+    display: block;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px dashed var(--purple);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-upload .btn-upload {
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--purple);
+    color: var(--background);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    overflow: hidden;
+    width: 50%;
+    font-size: 14px;
+}
+
+.label-upload .btn-upload:hover {
+    opacity: 0.8;
+}
+
+.show-upload {
+    width: 50%;
+    margin-left: 12px;
+    max-width: 100%;
+    overflow: hidden;
+}
