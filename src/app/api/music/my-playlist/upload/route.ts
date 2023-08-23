@@ -76,7 +76,7 @@ const uploadFile = async (file: File, type: string) => {
 	// const pathTxt = filePath.replace(/^\.\/public/, '').replace(/\\/g, '/');
 
 	// !!! use this when you deploy to vercel
-	const folderPath = `./data-upload/${folderName}`;
+	const folderPath = `data-upload/${folderName}`;
 	const filePath = `${folderPath}/${file.name}`;
 	const pathTxt = `/data-upload/${folderName}/${file.name}`;
 
