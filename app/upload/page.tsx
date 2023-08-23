@@ -17,7 +17,7 @@ export default function UploadPage(params: any) {
 	const userContext = useContext(UserContext) as UserContextType;
 	const {user} = userContext;
 	const [newPlaylist, setNewPlaylist] = useState('');
-	const [playlist, setPlaylist] = useState([]);
+	const [playlist, setPlaylist] = useState<any>([]);
 	const [musicPlaylist, setMusicPlaylist] = useState<MusicDataProps[]>([]);
 	const [activePlaylist, setActivePlaylist] = useState({
 		index: 0,
