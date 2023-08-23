@@ -1,4 +1,4 @@
-import {ButtonProps} from '@/props/button-props';
+import {ButtonProps} from '@/src/props/button-props';
 import {LoadingOutlined} from '@ant-design/icons';
 import '../../styles/button.css';
 import React from 'react';

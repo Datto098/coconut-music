@@ -4,7 +4,7 @@ import SlickSlider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../../styles/slider-custome.css';
-import {SliderMusicProps} from '@/props/slider-props';
+import {SliderMusicProps} from '@/src/props/slider-props';
 import MusicCard from '../music/music-card';
 
 export default function SliderMusic(params: SliderMusicProps) {

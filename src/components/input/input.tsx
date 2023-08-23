@@ -1,4 +1,4 @@
-import InputProps from '@/props/input-props';
+import InputProps from '@/src/props/input-props';
 import '../../styles/input.css';
 import React from 'react';
 function Input(props: InputProps) {
