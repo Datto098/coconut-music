@@ -76,17 +76,19 @@ const uploadFile = async (file: File, type: string) => {
 	// const pathTxt = filePath.replace(/^\.\/public/, '').replace(/\\/g, '/');
 
 	// !!! use this when you deploy to vercel
-	const folderPath = `data-upload/${folderName}`;
+	const folderPath = `./data-upload/${folderName}`;
 	const filePath = `${folderPath}/${file.name}`;
 	const pathTxt = `/data-upload/${folderName}/${file.name}`;
-	try {
-		// Ensure that the folder exists
-		await fs.promises.mkdir(folderPath, {recursive: true});
-	} catch (error) {
-		// Folder may already exist, ignore error
-	}
+
+	// try {
+	// 	// Ensure that the folder exists
+	// 	await fs.promises.mkdir(folderPath, {recursive: true});
+	// } catch (error) {
+	// 	// Folder may already exist, ignore error
+	// }
 
 	// Write the file to the specified path
+	console.log(filePath);
 	await writeFile(filePath, buffer);
 	console.log(`File saved at: ${filePath}`);
 	return pathTxt;
