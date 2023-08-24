@@ -7,14 +7,14 @@ import Button from '@/src/components/button/button';
 import {AppContext, AppContextType} from '@/src/context/app-context';
 import {UserContext, UserContextType} from '@/src/context/user-context';
 import {Tooltip as ReactTooltip} from 'react-tooltip';
-import {AppstoreOutlined, BellOutlined, UploadOutlined} from '@ant-design/icons';
+import {AppstoreOutlined, BellOutlined, BgColorsOutlined, UploadOutlined} from '@ant-design/icons';
 import Link from 'next/link';
 import '../../../styles/header.css';
 
 export default function Header(params: any) {
 	const [searchValue, setSearchValue] = useState('');
 	const appContext = useContext(AppContext) as AppContextType;
-	const {setIsActiveHeader, setIsActiveLoginForm} = appContext;
+	const {setIsActiveHeader, setIsActiveLoginForm, theme, setTheme} = appContext;
 	const userContext = useContext(UserContext) as UserContextType;
 	const {user} = userContext;
 
@@ -34,7 +34,7 @@ export default function Header(params: any) {
 				</Button>
 				<div className='logo'>
 					<Image
-						src={'/coconut-logo.png'}
+						src={theme === 'dark' ? '/coconut-logo.png' : '/coconut-logo-dark.png'}
 						width={144}
 						height={28}
 						alt='Logo'
@@ -59,9 +59,11 @@ export default function Header(params: any) {
 							<Button
 								className=''
 								rounded
-								onClick={() => {}}
+								onClick={() => {
+									setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+								}}
 							>
-								<UploadOutlined />
+								<BgColorsOutlined />
 							</Button>
 							<Button
 								className=''
@@ -95,7 +97,7 @@ export default function Header(params: any) {
 					clickable
 					id='my-tooltip-logout'
 					place='bottom'
-					style={{backgroundColor: 'var(--brown)', borderRadius: 8}}
+					style={{backgroundColor: 'var(--brown)', borderRadius: 8, color: 'var(--text-primary)'}}
 					opacity='1'
 					delayHide={100}
 				>

@@ -19,6 +19,7 @@
 		"bcryptjs": "^2.4.3",
 		"eslint": "8.46.0",
 		"eslint-config-next": "13.4.13",
+		"firebase": "^10.3.0",
 		"formidable": "^3.5.0",
 		"jsonwebtoken": "^9.0.1",
 		"mongoose": "^7.4.3",

@@ -1,5 +1,5 @@
 'use client';
-import {useContext} from 'react';
+import {useContext, useEffect} from 'react';
 import {MusicContext, MusicContextType} from '@/src/context/music-context';
 import Music from '../music/music';
 import {AppContext, AppContextType} from '@/src/context/app-context';
@@ -7,7 +7,6 @@ import '../../styles/sidebar.css';
 export default function SidebarRight(params: any) {
 	const mucisContext = useContext(MusicContext) as MusicContextType;
 	const {playlist, playing} = mucisContext;
-
 	const appContext = useContext(AppContext) as AppContextType;
 	const {isActivePlaylist} = appContext;
 
@@ -35,8 +34,7 @@ export default function SidebarRight(params: any) {
 								singerName={music.name_singer}
 								timeFormat={music.time_format}
 								index={index}
-								type='new-music'
-								active={playing.mucisId === music._id}
+								type={music.type}
 							/>
 						);
 					})}

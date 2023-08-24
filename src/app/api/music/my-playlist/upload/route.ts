@@ -1,19 +1,19 @@
 import connect from '@/src/database/config';
 import Music from '@/src/models/musicModel';
-import {writeFile} from 'fs/promises';
+// import {writeFile} from 'fs/promises';
 import {NextRequest, NextResponse} from 'next/server';
 import fs from 'fs';
 import util from 'util';
 
-const stat = util.promisify(fs.stat);
-const mkdir = util.promisify(fs.mkdir);
+// const stat = util.promisify(fs.stat);
+// const mkdir = util.promisify(fs.mkdir);
 
 connect();
 
 export async function POST(request: NextRequest, response: NextResponse) {
 	const data = await request.formData();
-	const fileMp3: File | null = data.get('fileMp3') as unknown as File;
-	const fileImg: File | null = data.get('fileImg') as unknown as File;
+	const fileMp3: string | null = data.get('fileMp3') as unknown as string;
+	const fileImg: string | null = data.get('fileImg') as unknown as string;
 	const musicName: string | null = data.get('musicName') as unknown as string;
 	const category: string | null = data.get('category') as unknown as string;
 	const singerName: string | null = data.get('singerName') as unknown as string;
@@ -34,8 +34,11 @@ export async function POST(request: NextRequest, response: NextResponse) {
 	}
 
 	// Get file path
-	const musicSrc = await uploadFile(fileMp3, 'mp3');
-	const imageMusic = await uploadFile(fileImg, 'img');
+	// const musicSrc = await uploadFile(fileMp3, 'mp3');
+	// const imageMusic = await uploadFile(fileImg, 'img');
+
+	const musicSrc = fileMp3;
+	const imageMusic = fileImg;
 
 	// Check if the music already exists
 	const music = await Music.findOne({musicSrc: musicSrc});
@@ -55,41 +58,3 @@ export async function POST(request: NextRequest, response: NextResponse) {
 	const uploaded = await newMusic.save();
 	return NextResponse.json({message: 'Tải nhạc lên thành công', success: true, data: uploaded}, {status: 201});
 }
-
-const uploadFile = async (file: File, type: string) => {
-	const bytes = await file.arrayBuffer();
-	const buffer = Buffer.from(bytes);
-
-	let folderName = '';
-
-	if (type === 'mp3') {
-		folderName = 'mp3';
-	} else if (type === 'img') {
-		folderName = 'img';
-	}
-
-	// !!! use this when you debug on the localhost
-	// Define the folder path
-	// const folderPath = `./public/data-upload/${folderName}`;
-	// Define the file path within the folder
-	// const filePath = `${folderPath}/${file.name}`;
-	// const pathTxt = filePath.replace(/^\.\/public/, '').replace(/\\/g, '/');
-
-	// !!! use this when you deploy to vercel
-	const folderPath = `data-upload/${folderName}`;
-	const filePath = `${folderPath}/${file.name}`;
-	const pathTxt = `/data-upload/${folderName}/${file.name}`;
-
-	// try {
-	// 	// Ensure that the folder exists
-	// 	await fs.promises.mkdir(folderPath, {recursive: true});
-	// } catch (error) {
-	// 	// Folder may already exist, ignore error
-	// }
-
-	// Write the file to the specified path
-	console.log(filePath);
-	await writeFile(filePath, buffer);
-	console.log(`File saved at: ${filePath}`);
-	return pathTxt;
-};

@@ -8,18 +8,7 @@ import {useContext} from 'react';
 import '../../styles/music.css';
 import {toast} from 'react-hot-toast';
 export default function Music(params: MusicProps) {
-	const {
-		imageMusic,
-		mucisId,
-		singerName,
-		musicSrc,
-		type,
-		musicName,
-		category,
-		index,
-		timeFormat,
-		active = false,
-	} = params;
+	const {imageMusic, mucisId, singerName, musicSrc, type, musicName, category, index, timeFormat} = params;
 	const musicContext = useContext(MusicContext) as MusicContextType;
 	const {setPlaying, clearPlayer, setIsPlaying, playing} = musicContext;
 	const userContext = useContext(UserContext) as UserContextType;
@@ -28,8 +17,8 @@ export default function Music(params: MusicProps) {
 	return (
 		<div
 			className={`${
-				active ? 'active' : ''
-			} music flex items-center gap-2 p-[10px] rounded-lg cursor-pointer hover:bg-[var(--light-brown)] relative transition-all duration-300 ease-linear`}
+				playing.mucisId === mucisId ? 'active' : ''
+			} music flex items-center gap-2 p-[10px] rounded-lg cursor-pointer hover:bg-[var(--brown-rgba)] relative transition-all duration-300 ease-linear`}
 		>
 			<div className='image-music rounded-lg overflow-hidden relative'>
 				<Image

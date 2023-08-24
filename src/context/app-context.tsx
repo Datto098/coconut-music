@@ -12,6 +12,8 @@ export type AppContextType = {
 	setIsActiveSignUpForm: React.Dispatch<React.SetStateAction<boolean>>;
 	isActiveUploadForm: boolean;
 	setIsActiveUploadForm: React.Dispatch<React.SetStateAction<boolean>>;
+	theme: string;
+	setTheme: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -22,6 +24,7 @@ export default function AppProvider(params: any) {
 	const [isActiveLoginForm, setIsActiveLoginForm] = useState<boolean>(false);
 	const [isActiveSignUpForm, setIsActiveSignUpForm] = useState<boolean>(false);
 	const [isActiveUploadForm, setIsActiveUploadForm] = useState<boolean>(false);
+	const [theme, setTheme] = useState<string>('light');
 	const value = useMemo<AppContextType>(
 		() => ({
 			isActiveHeader,
@@ -34,6 +37,8 @@ export default function AppProvider(params: any) {
 			setIsActiveSignUpForm,
 			isActiveUploadForm,
 			setIsActiveUploadForm,
+			theme,
+			setTheme,
 		}),
 		[
 			isActiveHeader,
@@ -46,6 +51,8 @@ export default function AppProvider(params: any) {
 			setIsActiveSignUpForm,
 			isActiveUploadForm,
 			setIsActiveUploadForm,
+			theme,
+			setTheme,
 		]
 	);
 	return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

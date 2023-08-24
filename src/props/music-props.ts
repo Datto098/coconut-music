@@ -8,7 +8,6 @@ export interface MusicProps {
 	timeFormat: string;
 	index: number;
 	type: string;
-	active?: boolean;
 }
 
 export interface MusicDataProps {

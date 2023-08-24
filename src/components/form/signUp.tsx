@@ -64,7 +64,7 @@ export default function SignUpForm(params: any) {
 					transition-all
 					duration-500
 					ease-linear
-					${isActiveSignUpForm ? 'opacity-[1]' : 'opacity-[0] z-[-1]'}
+					${isActiveSignUpForm ? 'opacity-[1] z-[10]' : 'opacity-[0] z-[-1]'}
 					`}
 			></div>
 			<div
@@ -81,7 +81,7 @@ export default function SignUpForm(params: any) {
 					transition-all
 					duration-500
 					ease-linear
-					z-10
+					z-[10]
 					${
 						isActiveSignUpForm
 							? 'translate-x-[-50%] translate-y-[-50%] opacity-[1]'
@@ -99,7 +99,7 @@ export default function SignUpForm(params: any) {
 					>
 						<CloseOutlined />
 					</Button>
-					<h3 className='text-center text-xl uppercase font-bold'>Đăng Ký</h3>
+					<h3 className='text-center text-xl uppercase font-bold text-[var(--text-primary)]'>Đăng Ký</h3>
 					<div>
 						<div className='mb-4'>
 							<Input

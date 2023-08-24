@@ -22,8 +22,8 @@ export type MusicContextType = {
 	duration: number;
 	setDuration: React.Dispatch<React.SetStateAction<number>>;
 	clearPlayer: () => void;
-	loadNextSong: () => void;
-	loadPrevSong: () => void;
+	loadNextSong: any;
+	loadPrevSong: any;
 	reLoad: () => void;
 	isPlaying: boolean;
 	setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
@@ -75,7 +75,7 @@ export default function MusicProvider(params: any) {
 					getData('/api/music/favorite', setPlayList);
 					break;
 				case 'top-view':
-					// getData('https://api-kaito-music.vercel.app/api/music/top-views?_limit=300', setPlayList);
+					getData('/api/music/top-view', setPlayList);
 					break;
 				default:
 					break;
@@ -94,14 +94,13 @@ export default function MusicProvider(params: any) {
 		setProcessPlaying(0);
 	}, []);
 
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	const loadNextSong = () => {
+	const loadNextSong = useCallback(() => {
 		if (playlist.length > 0) {
 			if (playing.index + 1 < playlist.length) {
 				clearPlayer();
 				setPlaying({
 					imageMusic: playlist[playing.index + 1].image_music,
-					mucisId: playlist[playing.index + 1].image_music,
+					mucisId: playlist[playing.index + 1]._id,
 					singerName: playlist[playing.index + 1].name_singer,
 					musicSrc: playlist[playing.index + 1].src_music,
 					musicName: playlist[playing.index + 1].name_music,
@@ -112,16 +111,15 @@ export default function MusicProvider(params: any) {
 				});
 			}
 		}
-	};
+	}, [playing, playlist]);
 
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	const loadPrevSong = () => {
+	const loadPrevSong = useCallback(() => {
 		if (playlist.length > 0) {
 			if (playing.index - 1 >= 0) {
 				clearPlayer();
 				setPlaying({
 					imageMusic: playlist[playing.index - 1].image_music,
-					mucisId: playlist[playing.index - 1].image_music,
+					mucisId: playlist[playing.index - 1]._id,
 					singerName: playlist[playing.index - 1].name_singer,
 					musicSrc: playlist[playing.index - 1].src_music,
 					musicName: playlist[playing.index - 1].name_music,
@@ -132,12 +130,13 @@ export default function MusicProvider(params: any) {
 				});
 			}
 		}
-	};
+	}, [playing, playlist]);
 
 	const getSongs = async () => {
 		await getData('/api/music/trending', setTrendingMusic);
 		await getData('/api/music/new-music', setNewMusic);
 		await getData('/api/music/favorite', setFavoriteMusic);
+		await getData('/api/music/top-view', setTopViewMusic);
 	};
 
 	useEffect(() => {

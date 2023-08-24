@@ -1,19 +1,19 @@
 import connect from '@/src/database/config';
 import Music from '@/src/models/musicModel';
-import {writeFile} from 'fs/promises';
+// import {writeFile} from 'fs/promises';
 import {NextRequest, NextResponse} from 'next/server';
 import fs from 'fs';
 import util from 'util';
 
-const stat = util.promisify(fs.stat);
-const mkdir = util.promisify(fs.mkdir);
+// const stat = util.promisify(fs.stat);
+// const mkdir = util.promisify(fs.mkdir);
 
 connect();
 
 export async function POST(request: NextRequest, response: NextResponse) {
 	const data = await request.formData();
-	const fileMp3: File | null = data.get('fileMp3') as unknown as File;
-	const fileImg: File | null = data.get('fileImg') as unknown as File;
+	const fileMp3: string | null = data.get('fileMp3') as unknown as string;
+	const fileImg: string | null = data.get('fileImg') as unknown as string;
 	const musicName: string | null = data.get('musicName') as unknown as string;
 	const category: string | null = data.get('category') as unknown as string;
 	const singerName: string | null = data.get('singerName') as unknown as string;
@@ -34,8 +34,11 @@ export async function POST(request: NextRequest, response: NextResponse) {
 	}
 
 	// Get file path
-	const musicSrc = await uploadFile(fileMp3, 'mp3');
-	const imageMusic = await uploadFile(fileImg, 'img');
+	// const musicSrc = await uploadFile(fileMp3, 'mp3');
+	// const imageMusic = await uploadFile(fileImg, 'img');
+
+	const musicSrc = fileMp3;
+	const imageMusic = fileImg;
 
 	// Check if the music already exists
 	const music = await Music.findOne({musicSrc: musicSrc});
@@ -56,34 +59,34 @@ export async function POST(request: NextRequest, response: NextResponse) {
 	return NextResponse.json({message: 'Tải nhạc lên thành công', success: true, data: uploaded}, {status: 201});
 }
 
-const uploadFile = async (file: File, type: string) => {
-	const bytes = await file.arrayBuffer();
-	const buffer = Buffer.from(bytes);
+// const uploadFile = async (file: File, type: string) => {
+// 	const bytes = await file.arrayBuffer();
+// 	const buffer = Buffer.from(bytes);
 
-	let folderName = '';
+// 	let folderName = '';
 
-	if (type === 'mp3') {
-		folderName = 'mp3';
-	} else if (type === 'img') {
-		folderName = 'img';
-	}
+// 	if (type === 'mp3') {
+// 		folderName = 'mp3';
+// 	} else if (type === 'img') {
+// 		folderName = 'img';
+// 	}
 
-	// Define the folder path
-	const folderPath = `./public/data-upload/${folderName}`;
-	// Define the file path within the folder
-	const filePath = `${folderPath}/${file.name}`;
-	const pathTxt = filePath.replace(/^\.\/public/, '').replace(/\\/g, '/');
+// 	// Define the folder path
+// 	const folderPath = `./public/data-upload/${folderName}`;
+// 	// Define the file path within the folder
+// 	const filePath = `${folderPath}/${file.name}`;
+// 	const pathTxt = filePath.replace(/^\.\/public/, '').replace(/\\/g, '/');
 
-	try {
-		// Check if the folder exists
-		await fs.promises.stat(folderPath);
-	} catch (error) {
-		// Folder doesn't exist, so create it
-		await mkdir(folderPath, {recursive: true});
-	}
+// 	try {
+// 		// Check if the folder exists
+// 		await fs.promises.stat(folderPath);
+// 	} catch (error) {
+// 		// Folder doesn't exist, so create it
+// 		await mkdir(folderPath, {recursive: true});
+// 	}
 
-	// Write the file to the specified path
-	await writeFile(filePath, buffer);
-	console.log(`File saved at: ${filePath}`);
-	return pathTxt;
-};
+// 	// Write the file to the specified path
+// 	await writeFile(filePath, buffer);
+// 	console.log(`File saved at: ${filePath}`);
+// 	return pathTxt;
+// };

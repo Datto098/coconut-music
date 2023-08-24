@@ -7,7 +7,7 @@ export const getData = async (url: string, callback: any) => {
 				'Content-Type': 'text/plain;charset=utf-8',
 			},
 		});
-		console.log(response);
+		// console.log(response);
 		if (response.data.success) {
 			callback(response.data.data);
 		}
@@ -19,7 +19,7 @@ export const getData = async (url: string, callback: any) => {
 export const postData = async (url: string, data: any, header = {}) => {
 	try {
 		const response = await axios.post(url, data, header);
-		console.log(response);
+		// console.log(response);
 		return response.data;
 	} catch (error: any) {
 		console.log(error);

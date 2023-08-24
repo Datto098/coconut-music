@@ -102,7 +102,7 @@ export default function LoginForm(params: any) {
 					>
 						<CloseOutlined />
 					</Button>
-					<h3 className='text-center text-xl uppercase font-bold'>Đăng nhập</h3>
+					<h3 className='text-center text-xl uppercase font-bold text-[var(--text-primary)]'>Đăng nhập</h3>
 					<div>
 						<div className='mb-4'>
 							<Input

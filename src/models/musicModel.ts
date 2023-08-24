@@ -5,7 +5,6 @@ const musicSchema = new mongoose.Schema(
 		name_music: {
 			type: String,
 			required: [true, 'Please provide a music name'],
-			unique: true,
 		},
 		category: {
 			type: String,

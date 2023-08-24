@@ -16,6 +16,18 @@
   --brown-rgba: rgba(51, 50, 53, 0.8);
 }
 
+[data-theme="light"] {
+  --brown: #eee;
+  --background: #fff;
+  --purple: #27ae60;
+  --light-brown: #242424;
+  --light-gray: #ccc;
+  --text-secondary: #4b4747;
+  --text-primary: #090909;
+  --background-dark: #eee;
+  --brown-rgba: rgba(70, 69, 71, 0.2);
+}
+
 * {
   margin: 0;
   padding: 0;

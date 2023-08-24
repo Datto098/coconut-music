@@ -2,11 +2,6 @@ import type {Metadata} from 'next';
 import MusicProvider from '@/src/context/music-context';
 import AppProvider from '@/src/context/app-context';
 import UserProvider from '@/src/context/user-context';
-import Header from '@/src/components/layouts/header/header';
-import SidebarLeft from '@/src/components/sidebar/sidebar-left';
-import SidebarRight from '@/src/components/sidebar/sidebar-right';
-import Player from '@/src/components/player/player';
-import {Toaster} from 'react-hot-toast';
 import './globals.css';
 import '../styles/home.css';
 import '../styles/custome.css';
@@ -22,16 +17,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 			<AppProvider>
 				<UserProvider>
 					<MusicProvider>
-						<body>
-							<Header />
-							<div className='home'>
-								<Toaster />
-								<SidebarLeft />
-								{children}
-								<SidebarRight />
-								<Player />
-							</div>
-						</body>
+						<body>{children}</body>
 					</MusicProvider>
 				</UserProvider>
 			</AppProvider>
