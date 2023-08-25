@@ -32,7 +32,7 @@ export default function MusicCard(params: MusicProps) {
 					src={imageMusic}
 					width={100}
 					height={100}
-					className={`object-cover rounded-lg transition-all duration-300 ease-linear w-[100%] `}
+					className={`object-cover rounded-lg transition-all duration-300 ease-linear w-[100%] h-[100%]`}
 					alt={musicName}
 				/>
 				<div className='player absolute bg-[rgba(0,0,0,0.5)] top-0 left-0 w-full bottom-0 transition-all duration-300 ease-linear hidden'>

@@ -4,10 +4,14 @@ import {UserContext, UserContextType} from '@/src/context/user-context';
 import {getData} from '@/src/helpers/axiosClient';
 import {useContext, useEffect, useState} from 'react';
 import '../../styles/home.css';
+import {AppContext, AppContextType} from '@/src/context/app-context';
 export default function HistoryPage(params: any) {
 	const [favorite, setFavorite] = useState([]);
 	const userContext = useContext(UserContext) as UserContextType;
 	const {user} = userContext;
+
+	const appContext = useContext(AppContext) as AppContextType;
+	const {theme} = appContext;
 
 	useEffect(() => {
 		if (user.userId !== '') {
@@ -16,8 +20,11 @@ export default function HistoryPage(params: any) {
 	}, [user]);
 
 	return (
-		<div className='content-wrapper p-4'>
-			<h1 className='text-center text-[20px] font-[500] mb-4 p-4  bg-[var(--light-gray)] rounded-xl page-title m-auto'>
+		<div
+			className='content-wrapper p-4'
+			data-theme={theme}
+		>
+			<h1 className='text-center text-[var(--text-primary)] text-[20px] font-[500] mb-4 p-4  bg-[var(--light-gray)] rounded-xl page-title m-auto'>
 				Danh sách nhạc yêu thích
 			</h1>
 			<div className='grid grid-cols-4 gap-3'>

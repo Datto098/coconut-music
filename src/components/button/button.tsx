@@ -1,7 +1,7 @@
 import {ButtonProps} from '@/src/props/button-props';
 import {LoadingOutlined} from '@ant-design/icons';
-import '../../styles/button.css';
 import React from 'react';
+import '../../styles/button.css';
 
 function Button(params: ButtonProps) {
 	const {children, primary, outline, rounded, onClick, className, active, disabled, isHandling, link, id} = params;

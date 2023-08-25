@@ -13,7 +13,7 @@ import {toast} from 'react-hot-toast';
 
 export default function UploadPage(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
-	const {isActiveUploadForm, setIsActiveUploadForm} = appContext;
+	const {isActiveUploadForm, setIsActiveUploadForm, theme} = appContext;
 	const userContext = useContext(UserContext) as UserContextType;
 	const {user} = userContext;
 	const [newPlaylist, setNewPlaylist] = useState('');
@@ -70,13 +70,17 @@ export default function UploadPage(params: any) {
 	return (
 		<>
 			<div
+				data-theme={theme}
 				className={`fixed top-[0] left-[0] bottom-[0] right-[0] bg-[var(--brown-rgba)] backdrop-filter backdrop-blur-sm  backdrop-contrast-100 transition-all duration-500 ease-linear
 					${isActiveUploadForm ? 'opacity-[1] z-[10]' : 'opacity-[0] z-[-1]'}
 					`}
 			></div>
 			<UploadForm type={activePlaylist.id !== 'unknown' && activePlaylist.id} />
-			<div className='content-wrapper p-4'>
-				<h1 className='text-center text-[20px] font-[500] mb-4 p-4  bg-[var(--light-gray)] rounded-xl page-title m-auto'>
+			<div
+				className='content-wrapper p-4'
+				data-theme={theme}
+			>
+				<h1 className='text-center text-[var(--text-primary)] text-[20px] font-[500] mb-4 p-4  bg-[var(--light-gray)] rounded-xl page-title m-auto'>
 					Danh sách phát của bạn
 				</h1>
 				<div className='flex items-center justify-between mb-4'>

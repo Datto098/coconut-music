@@ -1,3 +1,4 @@
+'use client';
 import {CloseOutlined} from '@ant-design/icons';
 import Button from '../button/button';
 import Input from '../input/input';
@@ -8,7 +9,7 @@ import {toast} from 'react-hot-toast';
 
 export default function SignUpForm(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
-	const {isActiveSignUpForm, setIsActiveLoginForm, setIsActiveSignUpForm} = appContext;
+	const {isActiveSignUpForm, setIsActiveLoginForm, setIsActiveSignUpForm, theme} = appContext;
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [username, setUsername] = useState('');
@@ -68,6 +69,7 @@ export default function SignUpForm(params: any) {
 					`}
 			></div>
 			<div
+				data-theme={theme}
 				className={`fixed
                     top-[50%]
                     left-[50%]

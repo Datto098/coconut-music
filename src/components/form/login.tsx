@@ -1,3 +1,4 @@
+'use client';
 import {CloseOutlined, GoogleOutlined} from '@ant-design/icons';
 import Button from '../button/button';
 import Input from '../input/input';
@@ -9,7 +10,7 @@ import {UserContext, UserContextType} from '@/src/context/user-context';
 
 export default function LoginForm(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
-	const {isActiveLoginForm, setIsActiveLoginForm, setIsActiveSignUpForm} = appContext;
+	const {isActiveLoginForm, setIsActiveLoginForm, setIsActiveSignUpForm, theme} = appContext;
 	const userContent = useContext(UserContext) as UserContextType;
 	const {getUser} = userContent;
 	const [email, setEmail] = useState('');
@@ -71,6 +72,7 @@ export default function LoginForm(params: any) {
 					`}
 			></div>
 			<div
+				data-theme={theme}
 				className={`fixed
                     top-[50%]
                     left-[50%]

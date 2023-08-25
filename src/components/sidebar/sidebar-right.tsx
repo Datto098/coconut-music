@@ -6,17 +6,18 @@ import {AppContext, AppContextType} from '@/src/context/app-context';
 import '../../styles/sidebar.css';
 export default function SidebarRight(params: any) {
 	const mucisContext = useContext(MusicContext) as MusicContextType;
-	const {playlist, playing} = mucisContext;
+	const {playlist} = mucisContext;
 	const appContext = useContext(AppContext) as AppContextType;
-	const {isActivePlaylist} = appContext;
+	const {isActivePlaylist, theme} = appContext;
 
 	return (
 		<div
+			data-theme={theme}
 			className='sidebar-right'
 			style={isActivePlaylist ? {minWidth: '350px', padding: ''} : {minWidth: '0px', padding: 0}}
 		>
 			<div className='sidebar-title'>
-				<h3 className='text-center py-2 px-5 rounded-lg mb-4 mt-2 bg-[var(--light-gray)] m-auto w-fit'>
+				<h3 className='text-center py-2 px-5 rounded-lg mb-4 mt-2 bg-[var(--light-gray)] m-auto w-fit text-[var(--text-primary)]'>
 					Danh sách phát
 				</h3>
 			</div>

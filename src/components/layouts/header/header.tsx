@@ -20,7 +20,10 @@ export default function Header(params: any) {
 
 	return (
 		<>
-			<div className='header-wrapper'>
+			<div
+				className='header-wrapper'
+				data-theme={theme}
+			>
 				<Button
 					rounded
 					onClick={() => {

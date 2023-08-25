@@ -21,10 +21,9 @@ export default function UploadForm(params: any) {
 	const [urlImgFile, setUrImgFile] = useState<any>(null);
 	const [isSaved, setIsSaved] = useState(false);
 	const appContext = useContext(AppContext) as AppContextType;
-	const {isActiveUploadForm, setIsActiveUploadForm} = appContext;
+	const {isActiveUploadForm, setIsActiveUploadForm, theme} = appContext;
 	const [disabled, setDisabled] = useState(true);
 	const [isFetchingData, setIsFetchingData] = useState(false);
-
 	const handleUploadMusic = async () => {
 		try {
 			const formData = new FormData();
@@ -79,6 +78,7 @@ export default function UploadForm(params: any) {
 
 	return (
 		<div
+			data-theme={theme}
 			className={`fixed top-[50%] left-[50%] bg-[var(--brown)] w-[840px] rounded-xl backdrop-filter backdrop-grayscale  backdrop-blur-md  backdrop-contrast-200 transition-all duration-500 ease-linear z-[10] upload-form  min-w-[860px  m-auto  p-[40px]
 					${
 						isActiveUploadForm
@@ -161,7 +161,9 @@ export default function UploadForm(params: any) {
 						Tải tệp âm thanh
 						<CloudUploadOutlined />
 					</span>
-					<span className='show-upload'>{mp3File ? mp3File.name : 'Kéo thả file (mp3)'}</span>
+					<span className='show-upload text-[var(--text-primary)]'>
+						{mp3File ? mp3File.name : 'Kéo thả file (mp3)'}
+					</span>
 					<input
 						hidden
 						type='file'
@@ -220,7 +222,9 @@ export default function UploadForm(params: any) {
 						Tải tệp hình ảnh
 						<CloudUploadOutlined />
 					</span>
-					<span className='show-upload'>{imgFile ? imgFile.name : 'Kéo thả file (jpg, jpeg, png, webp)'}</span>
+					<span className='show-upload text-[var(--text-primary)]'>
+						{imgFile ? imgFile.name : 'Kéo thả file (jpg, jpeg, png, webp)'}
+					</span>
 					<input
 						hidden
 						type='file'

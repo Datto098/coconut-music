@@ -8,7 +8,7 @@ import {UserContext, UserContextType} from '@/src/context/user-context';
 import {toast} from 'react-hot-toast';
 export default function SidebarLeft(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
-	const {isActiveHeader} = appContext;
+	const {isActiveHeader, theme} = appContext;
 
 	const userContext = useContext(UserContext) as UserContextType;
 	const {user} = userContext;
@@ -23,6 +23,7 @@ export default function SidebarLeft(params: any) {
 
 	return (
 		<div
+			data-theme={theme}
 			className='sidebar-left'
 			style={isActiveHeader ? {minWidth: '250px'} : {minWidth: '0px'}}
 		>

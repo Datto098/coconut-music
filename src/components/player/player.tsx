@@ -46,7 +46,7 @@ export default function Player(params: any) {
 	} = musicContext;
 
 	const appContext = useContext(AppContext) as AppContextType;
-	const {setIsActivePlaylist} = appContext;
+	const {setIsActivePlaylist, theme} = appContext;
 
 	// Convert duration to seconds
 	const formatTimePlay = (currentTimePlay: number) => {
@@ -204,6 +204,7 @@ export default function Player(params: any) {
 
 	return (
 		<div
+			data-theme={theme}
 			className='player-bar px-2 py-3 fixed bg-[var(--background-dark)] bottom-0 left-0 w-full right-0 border-[var(--light-gray)] border-t z-2 flex items-center justify-between'
 			style={playing.musicName ? {transform: 'translateY(0)'} : {transform: 'translateY(100%)'}}
 		>
