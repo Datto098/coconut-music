@@ -4,7 +4,7 @@ import Music from '@/src/models/musicModel';
 import {NextRequest, NextResponse} from 'next/server';
 
 connect();
-
+export const dynamic = 'force-dynamic';
 export async function POST(request: NextRequest) {
 	try {
 		const reqBody = await request.json();

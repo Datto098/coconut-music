@@ -3,7 +3,7 @@ import Music from '@/src/models/musicModel';
 import {NextRequest, NextResponse} from 'next/server';
 
 connect();
-
+export const dynamic = 'force-dynamic';
 export async function GET(request: NextRequest) {
 	try {
 		const limitParam = request.nextUrl.searchParams.get('_limit') as string;
