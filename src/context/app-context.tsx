@@ -24,7 +24,7 @@ export default function AppProvider(params: any) {
 	const [isActiveLoginForm, setIsActiveLoginForm] = useState<boolean>(false);
 	const [isActiveSignUpForm, setIsActiveSignUpForm] = useState<boolean>(false);
 	const [isActiveUploadForm, setIsActiveUploadForm] = useState<boolean>(false);
-	const [theme, setTheme] = useState<string>('light');
+	const [theme, setTheme] = useState<string>('dark');
 	const value = useMemo<AppContextType>(
 		() => ({
 			isActiveHeader,
