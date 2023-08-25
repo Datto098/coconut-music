@@ -200,7 +200,6 @@ export default function UploadForm(params: any) {
 					e.stopPropagation();
 					if (e.dataTransfer.files && e.dataTransfer.files[0]) {
 						const file = e.dataTransfer.files[0];
-						console.log(file.type);
 						if (
 							file.type === 'image/jpeg' ||
 							file.type === 'image/jpg' ||

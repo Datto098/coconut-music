@@ -5,7 +5,7 @@ import Playlist from '@/src/models/playlistModel';
 import {NextRequest, NextResponse} from 'next/server';
 
 connect();
-
+export const dynamic = 'auto';
 export async function GET(request: NextRequest) {
 	try {
 		const userId = request.nextUrl.searchParams.get('user_id') as string;

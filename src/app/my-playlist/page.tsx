@@ -59,13 +59,17 @@ export default function UploadPage(params: any) {
 	}, [playlist]);
 
 	useEffect(() => {
-		if (activePlaylist.id !== 'unknown') {
+		if (activePlaylist.id !== 'unknown' && user.userId !== '') {
 			getData(
 				`/api/music/my-playlist/playlist/music?user_id=${user.userId}&playlist_id=${activePlaylist.id}`,
 				setMusicPlaylist
 			);
 		}
 	}, [activePlaylist, user]);
+
+	useEffect(() => {
+		console.log(musicPlaylist);
+	}, [musicPlaylist]);
 
 	return (
 		<>
