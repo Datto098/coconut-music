@@ -9,6 +9,8 @@
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-style.btn-primary {
@@ -64,4 +66,27 @@
     opacity: 0.6;
     user-select: none;
     cursor: not-allowed;
+}
+
+.btn-style a {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-style.icon a {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }

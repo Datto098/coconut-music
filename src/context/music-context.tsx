@@ -63,23 +63,8 @@ export default function MusicProvider(params: any) {
 	const [playlist, setPlayList] = useState<any[]>([]);
 
 	useEffect(() => {
-		if (playing) {
-			switch (playing.type) {
-				case 'trending':
-					getData('/api/music/trending', setPlayList);
-					break;
-				case 'new-music':
-					getData('/api/music/new-music', setPlayList);
-					break;
-				case 'favorite':
-					getData('/api/music/favorite', setPlayList);
-					break;
-				case 'top-view':
-					getData('/api/music/top-view', setPlayList);
-					break;
-				default:
-					break;
-			}
+		if (playing.mucisId !== '') {
+			getData(`/api/music/${playing.type}`, setPlayList);
 		}
 	}, [playing]);
 

@@ -51,3 +51,9 @@
 .page-title {
     font-family: 'Bungee', cursive;
 }
+
+.page-music-title {
+    font-family: 'Bungee', cursive;
+    font-size: 4rem;
+    color: var(--text-primary);
+}

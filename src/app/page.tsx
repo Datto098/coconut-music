@@ -36,7 +36,7 @@ export default function Home() {
 				<h3 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] flex items-center justify-between sec-title'>
 					Xu Hướng
 					<Link
-						href='/trending'
+						href='/music/trending'
 						className='text-sm font-thin text-[var(--text-secondary)] flex items-center justify-center gap-1'
 					>
 						Xem tất cả
@@ -55,7 +55,7 @@ export default function Home() {
 			</div>
 			<div className='section-wrapper'>
 				<h3 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Mới Phát Hành</h3>
-				<div className='grid grid-cols-3 gap-2 max-[940px]:grid-cols-2 max-[480px]:grid-cols-1'>
+				<div className='grid grid-cols-3 gap-2 max-[940px]:grid-cols-2 max-[580px]:grid-cols-1'>
 					{newMusic &&
 						newMusic.map((music, index) => {
 							return (
@@ -69,7 +69,7 @@ export default function Home() {
 									singerName={music.name_singer}
 									timeFormat={music.time_format}
 									index={index}
-									type='new-music'
+									type={music.type}
 								/>
 							);
 						})}
@@ -79,14 +79,19 @@ export default function Home() {
 					onClick={() => {}}
 					className='my-4 mx-auto'
 				>
-					Xem tất cả
+					<Link
+						href='/music/new-music'
+						className='text-sm font-thin flex items-center justify-center gap-1'
+					>
+						Xem tất cả
+					</Link>
 				</Button>
 			</div>
 			<div className='section-wrapper'>
 				<h3 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] flex items-center justify-between sec-title'>
 					Top yêu thích
 					<Link
-						href='/trending'
+						href='/music/favorite'
 						className='text-sm font-thin text-[var(--text-secondary)] flex items-center justify-center gap-1'
 					>
 						Xem tất cả
@@ -104,7 +109,7 @@ export default function Home() {
 			</div>
 			<div className='section-wrapper'>
 				<h3 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Top view</h3>
-				<div className='grid grid-cols-3 gap-2 max-[940px]:grid-cols-2 max-[480px]:grid-cols-1'>
+				<div className='grid grid-cols-3 gap-2 max-[940px]:grid-cols-2 max-[580px]:grid-cols-1'>
 					{topViewMusic &&
 						topViewMusic.map((music, index) => {
 							return (
@@ -118,7 +123,7 @@ export default function Home() {
 									singerName={music.name_singer}
 									timeFormat={music.time_format}
 									index={index}
-									type='top-view'
+									type={music.type}
 								/>
 							);
 						})}
@@ -128,7 +133,12 @@ export default function Home() {
 					onClick={() => {}}
 					className='my-4 mx-auto'
 				>
-					Xem tất cả
+					<Link
+						href='/music/top-view'
+						className='text-sm font-thin flex items-center justify-center gap-1'
+					>
+						Xem tất cả
+					</Link>
 				</Button>
 			</div>
 		</div>

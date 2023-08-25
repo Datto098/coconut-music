@@ -13,7 +13,7 @@
   --text-secondary: #ffffff80;
   --text-primary: #fff;
   --background-dark: #000;
-  --brown-rgba: rgba(51, 50, 53, 0.8);
+  --brown-rgba: #333235cc;
 }
 
 [data-theme="light"] {
@@ -25,7 +25,7 @@
   --text-secondary: #4b4747;
   --text-primary: #090909;
   --background-dark: #eee;
-  --brown-rgba: rgba(70, 69, 71, 0.2);
+  --brown-rgba: #46454733;
 }
 
 * {

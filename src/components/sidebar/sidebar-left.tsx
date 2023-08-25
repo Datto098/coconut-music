@@ -24,7 +24,7 @@ export default function SidebarLeft(params: any) {
 	return (
 		<div
 			data-theme={theme}
-			className='sidebar-left'
+			className='sidebar-left relative max-[1240px]:absolute max-[1240px]:top-0 max-[1240px]:left-0 max-[1240px]:bottom-0 max-[1240px]:z-10'
 			style={isActiveHeader ? {minWidth: '250px'} : {minWidth: '0px'}}
 		>
 			<ul className='menu'>

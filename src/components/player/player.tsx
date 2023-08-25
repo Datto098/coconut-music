@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
 import Button from '../button/button';
-import '../../styles/music.css';
 import {
 	HeartOutlined,
 	MoreOutlined,
@@ -17,6 +16,7 @@ import {useContext, useEffect, useRef, useState} from 'react';
 import {MusicContext, MusicContextType} from '@/src/context/music-context';
 import ReactAudioPlayer from 'react-audio-player';
 import {AppContext, AppContextType} from '@/src/context/app-context';
+import '../../styles/music.css';
 
 export default function Player(params: any) {
 	const processRef = useRef<any>(null);
@@ -205,20 +205,22 @@ export default function Player(params: any) {
 	return (
 		<div
 			data-theme={theme}
-			className='player-bar px-2 py-3 fixed bg-[var(--background-dark)] bottom-0 left-0 w-full right-0 border-[var(--light-gray)] border-t z-2 flex items-center justify-between'
+			className='player-bar px-2 py-3 fixed bg-[var(--background-dark)] bottom-0 left-0 w-full right-0 border-[var(--light-gray)] border-t z-2 flex items-center justify-between
+			max-[1240px]:flex-col-reverse z-[11]
+			'
 			style={playing.musicName ? {transform: 'translateY(0)'} : {transform: 'translateY(100%)'}}
 		>
-			<div className='music-infor flex gap-3 items-center min-w-[500px]'>
+			<div className='music-infor flex gap-3 items-center min-w-[500px] max-[1860px]:min-w-[auto] max-[1240px]:hidden'>
 				<div className='overflow-hidden rounded-lg'>
 					<Image
 						src={playing.imageMusic ? playing.imageMusic : '/next.svg'}
 						alt={playing.musicName}
 						width={64}
 						height={64}
-						className='w-[64px] h-[64px] object-cover rounded-e-lg'
+						className='w-[64px] h-[64px] object-cover rounded-e-lg max-[1240px]:w-[120px] max-[1240px]:h-[120px] max-[1240px]:rounded-full'
 					/>
 				</div>
-				<div className='flex flex-col justify-center'>
+				<div className='flex flex-col justify-center max-[1240px]:text-center'>
 					<span className='music-name text-[var(--text-primary)]'>{playing.musicName}</span>
 					<span className='text-sm text-[var(--text-secondary)]'>{playing.singerName}</span>
 				</div>
@@ -263,7 +265,7 @@ export default function Player(params: any) {
 						}
 					}}
 				/>
-				<div>
+				<div className='flex flex-col max-[1240px]:flex-col-reverse max-[1240px]:mb-2'>
 					<div className='flex gap-2 items-center justify-center'>
 						<Button
 							onClick={() => {
@@ -305,8 +307,8 @@ export default function Player(params: any) {
 					</div>
 					<div className='flex items-center justify-center gap-3'>
 						<span className='text-sm text-[var(--text-secondary)]'>{formatTimePlay(Math.round(currentTimePlay))}</span>
-						<div>
-							<div className='process'>
+						<div className=''>
+							<div className='process w-[642px] max-[1240px]:max-w-[460px] max-[640px]:max-w-[340px]'>
 								<div className='slider-bar'>
 									<div
 										className='slide-process'
@@ -323,7 +325,7 @@ export default function Player(params: any) {
 					</div>
 				</div>
 			</div>
-			<div className='other-action min-w-[500px]'>
+			<div className='other-action min-w-[500px] max-[1860px]:min-w-[auto]'>
 				<div className='flex gap-2 justify-end'>
 					<div className='flex items-center gap-2 volume-box'>
 						<Button

@@ -35,7 +35,7 @@ export default function Header(params: any) {
 				>
 					<AppstoreOutlined />
 				</Button>
-				<div className='logo'>
+				<div className='logo max-[1024px]:hidden'>
 					<Image
 						src={theme === 'dark' ? '/coconut-logo.png' : '/coconut-logo-dark.png'}
 						width={144}
@@ -43,7 +43,7 @@ export default function Header(params: any) {
 						alt='Logo'
 					/>
 				</div>
-				<div className='box-search flex-1 px-[90px]'>
+				<div className='box-search flex-1 px-[90px] max-[860px]:hidden'>
 					<Input
 						placeholder='Tìm kiếm bài hát'
 						type='text'

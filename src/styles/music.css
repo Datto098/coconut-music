@@ -31,7 +31,7 @@
 
 .volume,
 .process {
-    width: 642px;
+    /* width: 642px; */
     height: 15px;
     overflow: hidden;
     display: flex;
@@ -126,8 +126,8 @@
     transition: all 0.3s ease;
 }
 
-.history-card:hover {
-    /* filter: brightness(1.1); */
+.data-music:hover .music {
+    background-color: transparent;
 }
 
 .history-card .play {

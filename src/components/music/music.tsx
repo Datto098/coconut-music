@@ -2,11 +2,11 @@ import {MusicProps} from '@/src/props/music-props';
 import {postData} from '@/src/helpers/axiosClient';
 import {UserContext, UserContextType} from '@/src/context/user-context';
 import {MusicContext, MusicContextType} from '@/src/context/music-context';
-import {HeartOutlined, MoreOutlined, PlayCircleOutlined} from '@ant-design/icons';
+import {HeartOutlined, PlayCircleOutlined} from '@ant-design/icons';
 import Image from 'next/image';
 import {useContext} from 'react';
-import '../../styles/music.css';
 import {toast} from 'react-hot-toast';
+import '../../styles/music.css';
 export default function Music(params: MusicProps) {
 	const {imageMusic, mucisId, singerName, musicSrc, type, musicName, category, index, timeFormat} = params;
 	const musicContext = useContext(MusicContext) as MusicContextType;
@@ -26,7 +26,7 @@ export default function Music(params: MusicProps) {
 					alt={musicName ? musicName : ''}
 					width={60}
 					height={60}
-					className='overflow-hidden object-cover w-[60px] h-[60px]'
+					className='overflow-hidden object-cover w-[60px] h-[60px] max-[830px]:w-[50px] max-[830px]:h-[50px]'
 				/>
 				<div className='player absolute bg-[rgba(0,0,0,0.5)] top-0 left-0 w-full bottom-0 transition-all duration-300 ease-linear hidden'>
 					<div
