@@ -67,10 +67,6 @@ export default function UploadPage(params: any) {
 		}
 	}, [activePlaylist, user]);
 
-	useEffect(() => {
-		console.log(musicPlaylist);
-	}, [musicPlaylist]);
-
 	return (
 		<>
 			<div
@@ -87,7 +83,7 @@ export default function UploadPage(params: any) {
 				<h1 className='text-center text-[var(--text-primary)] text-[20px] font-[500] mb-4 p-4  bg-[var(--light-gray)] rounded-xl page-title m-auto'>
 					Danh sách phát của bạn
 				</h1>
-				<div className='flex items-center justify-between mb-4'>
+				<div className='flex items-center justify-between mb-4 max-[840px]:flex-col-reverse max-[840px]:gap-3'>
 					<div>
 						<ul className='flex items-center justify-start gap-2'>
 							{playlist.length > 0 ? (
@@ -140,7 +136,7 @@ export default function UploadPage(params: any) {
 					</div>
 				</div>
 				<div className='mb-2'>
-					<div className='grid grid-cols-12 gap-2 max-[940px]:grid-cols-2 max-[480px]:grid-cols-1 mb-3'>
+					<div className='grid grid-cols-12 gap-2 max-[1640px]:grid-cols-10 max-[1440px]:grid-cols-8 max-[1240px]:grid-cols-6 max-[940px]:grid-cols-4 max-[640px]:grid-cols-3 max-[540px]:grid-cols-2 mb-3'>
 						{musicPlaylist &&
 							musicPlaylist.map((music, index) => {
 								return (

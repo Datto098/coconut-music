@@ -4,8 +4,11 @@
     font-size: 14px;
     color: var(--text-secondary);
     padding: 12px 24px;
-    min-width: 350px;
     width: 100%;
+}
+
+.label-wrapper {
+    min-width: 350px;
 }
 
 .field-style::placeholder {

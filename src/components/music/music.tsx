@@ -7,7 +7,8 @@ import Image from 'next/image';
 import {useContext} from 'react';
 import {toast} from 'react-hot-toast';
 import '../../styles/music.css';
-export default function Music(params: MusicProps) {
+import Skeleton from '../loading/loadingSkeleton';
+function Music(params: MusicProps) {
 	const {imageMusic, mucisId, singerName, musicSrc, type, musicName, category, index, timeFormat} = params;
 	const musicContext = useContext(MusicContext) as MusicContextType;
 	const {setPlaying, clearPlayer, setIsPlaying, playing} = musicContext;
@@ -86,3 +87,22 @@ export default function Music(params: MusicProps) {
 		</div>
 	);
 }
+const loading = () => {
+	return (
+		<div
+			className={`music flex items-center gap-2 p-[10px] rounded-lg cursor-pointer hover:bg-[var(--brown-rgba)] relative transition-all duration-300 ease-linear`}
+		>
+			<Skeleton className='image-music rounded-lg overflow-hidden relative w-[60px] h-[60px] max-[830px]:w-[50px] max-[830px]:h-[50px]'>
+				<Skeleton className='overflow-hidden object-cover w-[60px] h-[60px] max-[830px]:w-[50px] max-[830px]:h-[50px]' />
+			</Skeleton>
+			<div className='music-infor flex flex-col'>
+				<Skeleton className='music-name text-[var(--text-primary)] p-2 w-[100px] rounded-lg mb-1' />
+				<Skeleton className='singer-name text-sm text-[var(--text-secondary)] p-2 w-[80px] rounded-lg' />
+			</div>
+		</div>
+	);
+};
+
+Music.loading = loading;
+
+export default Music;

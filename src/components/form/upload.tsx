@@ -79,7 +79,7 @@ export default function UploadForm(params: any) {
 	return (
 		<div
 			data-theme={theme}
-			className={`fixed top-[50%] left-[50%] bg-[var(--brown)] w-[840px] rounded-xl backdrop-filter backdrop-grayscale  backdrop-blur-md  backdrop-contrast-200 transition-all duration-500 ease-linear z-[10] upload-form  min-w-[860px  m-auto  p-[40px]
+			className={`fixed top-[50%] left-[50%] bg-[var(--brown)] w-[840px] max-[1240px]:w-[95%] rounded-xl backdrop-filter backdrop-grayscale  backdrop-blur-md  backdrop-contrast-200 transition-all duration-500 ease-linear z-[10] upload-form  min-w-[860px  m-auto  p-[40px]
 					${
 						isActiveUploadForm
 							? 'translate-x-[-50%] translate-y-[-50%] opacity-[1]'
@@ -107,6 +107,7 @@ export default function UploadForm(params: any) {
 						onChange={(e: any) => {
 							setMusicName(e.target.value);
 						}}
+						className=' max-[1240px]:max-w-[100%]'
 					/>
 				</div>
 				<div className='form-control w-full'>
@@ -135,7 +136,7 @@ export default function UploadForm(params: any) {
 				</div>
 			</div>
 			<div
-				className='flex items-center justify-between gap-3 mb-[20px]'
+				className='flex items-center justify-between gap-3 mb-[20px] max-[1240px]:flex-col'
 				onDragOver={(e: any) => {
 					e.preventDefault();
 					e.stopPropagation();
@@ -190,7 +191,7 @@ export default function UploadForm(params: any) {
 				/>
 			</div>
 			<div
-				className='flex justify-between items-start gap-3 mb-[20px]'
+				className='flex justify-between items-start gap-3 mb-[20px] max-[1240px]:flex-col max-[1240px]:justify-center max-[1240px]:items-center'
 				onDragOver={(e: any) => {
 					e.preventDefault();
 					e.stopPropagation();
@@ -215,7 +216,7 @@ export default function UploadForm(params: any) {
 			>
 				<label
 					htmlFor='img-file'
-					className='label-upload'
+					className='label-upload w-fit max-[1240px]:w-[100%]'
 				>
 					<span className='btn-upload'>
 						Tải tệp hình ảnh
@@ -245,15 +246,15 @@ export default function UploadForm(params: any) {
 						}}
 					/>
 				</label>
-			</div>
-			<div className={`image-demo overflow-hidden rounded-lg mb-[20px] max-h-[300px] max-w-[300px]`}>
-				<Image
-					className={`object-cover rounded-lg ${imgFile ? 'w-[100%]' : 'h-[100%]'}`}
-					src={imgFile ? URL.createObjectURL(imgFile) : '/images/default-image.jpg'}
-					alt=''
-					width={200}
-					height={200}
-				/>
+				<div className={`image-demo overflow-hidden rounded-lg mb-[20px] max-h-[300px] max-w-[300px]`}>
+					<Image
+						className={`object-cover rounded-lg ${imgFile ? 'w-[100%]' : 'h-[100%]'}`}
+						src={imgFile ? URL.createObjectURL(imgFile) : '/images/default-image.jpg'}
+						alt=''
+						width={200}
+						height={200}
+					/>
+				</div>
 			</div>
 			<Button
 				onClick={() => {

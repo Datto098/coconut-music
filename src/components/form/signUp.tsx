@@ -84,6 +84,7 @@ export default function SignUpForm(params: any) {
 					duration-500
 					ease-linear
 					z-[10]
+					max-[840px]:w-[95%]
 					${
 						isActiveSignUpForm
 							? 'translate-x-[-50%] translate-y-[-50%] opacity-[1]'
@@ -158,7 +159,7 @@ export default function SignUpForm(params: any) {
 									setIsActiveLoginForm(true);
 								}}
 								link
-								className='flex gap-1'
+								className='flex gap-1 text-[var(--text-primary)]'
 							>
 								Đã có tài khoản ?
 							</Button>

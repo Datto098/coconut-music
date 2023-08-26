@@ -1,13 +1,14 @@
 import {HeartOutlined, MoreOutlined, PlayCircleOutlined} from '@ant-design/icons';
 import {MusicProps} from '@/src/props/music-props';
 import Image from 'next/image';
-import '../../styles/music.css';
 import {useContext} from 'react';
 import {MusicContext, MusicContextType} from '@/src/context/music-context';
 import {AppContext, AppContextType} from '@/src/context/app-context';
 import {UserContext, UserContextType} from '@/src/context/user-context';
 import {postData} from '@/src/helpers/axiosClient';
 import {toast} from 'react-hot-toast';
+import '../../styles/music.css';
+import Skeleton from '../loading/loadingSkeleton';
 export default function MusicCard(params: MusicProps) {
 	const {imageMusic, mucisId, singerName, musicSrc, index, type, musicName, category, timeFormat} = params;
 	const musicContext = useContext(MusicContext) as MusicContextType;
@@ -95,3 +96,23 @@ export default function MusicCard(params: MusicProps) {
 		</div>
 	);
 }
+
+const loading = () => {
+	return (
+		<div className='music-card music cursor-pointer px-[5px]'>
+			<div
+				className={`image-music relative cursor-pointer transition-all duration-300 ease-linear overflow-hidden rounded-lg w-[full] h-[110px]`}
+			>
+				<Skeleton className={`rounded-lg transition-all duration-300 ease-linear w-[100%] h-[100%]`} />
+			</div>
+			<div className='music-infor mt-2'>
+				<div className='music-infor flex flex-col whitespace-nowrap overflow-hidden'>
+					<Skeleton className='music-name text-[var(--text-primary)] p-2 w-[100%] mb-1 rounded-lg' />
+					<Skeleton className='text-sm text-[var(--text-secondary)] p-2 w-[100%] rounded-lg' />
+				</div>
+			</div>
+		</div>
+	);
+};
+
+MusicCard.loading = loading;

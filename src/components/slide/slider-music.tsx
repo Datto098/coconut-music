@@ -15,22 +15,28 @@ export default function SliderMusic(params: SliderMusicProps) {
 				{...settings}
 				className='slider'
 			>
-				{slideData.map((music, index) => {
-					return (
-						<MusicCard
-							imageMusic={music.image_music}
-							key={music._id}
-							musicName={music.name_music}
-							mucisId={music._id}
-							musicSrc={music.src_music}
-							category={music.category}
-							singerName={music.name_singer}
-							type={type}
-							index={index}
-							timeFormat={music.time_format}
-						/>
-					);
-				})}
+				{slideData.length > 0
+					? slideData.map((music, index) => {
+							return (
+								<MusicCard
+									imageMusic={music.image_music}
+									key={music._id}
+									musicName={music.name_music}
+									mucisId={music._id}
+									musicSrc={music.src_music}
+									category={music.category}
+									singerName={music.name_singer}
+									type={type}
+									index={index}
+									timeFormat={music.time_format}
+								/>
+							);
+					  })
+					: Array(12)
+							.fill(0)
+							.map((item: any, index: number) => {
+								return <MusicCard.loading key={index} />;
+							})}
 			</SlickSlider>
 		</div>
 	);

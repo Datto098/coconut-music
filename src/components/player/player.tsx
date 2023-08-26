@@ -46,7 +46,7 @@ export default function Player(params: any) {
 	} = musicContext;
 
 	const appContext = useContext(AppContext) as AppContextType;
-	const {setIsActivePlaylist, theme} = appContext;
+	const {setIsActivePlaylist, theme, isActivePlayer} = appContext;
 
 	// Convert duration to seconds
 	const formatTimePlay = (currentTimePlay: number) => {
@@ -128,10 +128,18 @@ export default function Player(params: any) {
 			document.addEventListener('mousemove', handleMouseMove);
 			document.addEventListener('mouseup', handleMouseUp);
 
+			processRef.current.addEventListener('touchend', handleMouseDown);
+			document.addEventListener('touchmove', handleMouseMove);
+			document.addEventListener('touchstart', handleMouseUp);
+
 			return () => {
 				processRef.current.removeEventListener('mousedown', handleMouseDown);
 				document.removeEventListener('mousemove', handleMouseMove);
 				document.removeEventListener('mouseup', handleMouseUp);
+
+				processRef.current.removeEventListener('touchend', handleMouseDown);
+				document.removeEventListener('touchmove', handleMouseMove);
+				document.removeEventListener('touchstart', handleMouseUp);
 			};
 		}
 	}, [isReadyToDrag, setProcessPlaying]);
@@ -177,10 +185,18 @@ export default function Player(params: any) {
 			volumeRef.current.addEventListener('mousemove', handleMouseMove);
 			volumeRef.current.addEventListener('mouseup', handleMouseUp);
 
+			volumeRef.current.addEventListener('touchend', handleMouseDown);
+			volumeRef.current.addEventListener('touchmove', handleMouseMove);
+			volumeRef.current.addEventListener('touchstart', handleMouseUp);
+
 			return () => {
 				volumeRef.current.removeEventListener('mousedown', handleMouseDown);
 				volumeRef.current.removeEventListener('mousemove', handleMouseMove);
 				volumeRef.current.removeEventListener('mouseup', handleMouseUp);
+
+				volumeRef.current.removeEventListener('touchend', handleMouseDown);
+				volumeRef.current.removeEventListener('touchmove', handleMouseMove);
+				volumeRef.current.removeEventListener('touchstart', handleMouseUp);
 			};
 		}
 	}, [isReadyToDragVolume, setCurrentVolume]);
@@ -206,9 +222,8 @@ export default function Player(params: any) {
 		<div
 			data-theme={theme}
 			className='player-bar px-2 py-3 fixed bg-[var(--background-dark)] bottom-0 left-0 w-full right-0 border-[var(--light-gray)] border-t z-2 flex items-center justify-between
-			max-[1240px]:flex-col-reverse z-[11]
-			'
-			style={playing.musicName ? {transform: 'translateY(0)'} : {transform: 'translateY(100%)'}}
+			max-[1240px]:flex-col-reverse z-[11]'
+			style={isActivePlayer ? {transform: 'translateY(0)'} : {transform: 'translateY(100%)'}}
 		>
 			<div className='music-infor flex gap-3 items-center min-w-[500px] max-[1860px]:min-w-[auto] max-[1240px]:hidden'>
 				<div className='overflow-hidden rounded-lg'>
@@ -308,7 +323,7 @@ export default function Player(params: any) {
 					<div className='flex items-center justify-center gap-3'>
 						<span className='text-sm text-[var(--text-secondary)]'>{formatTimePlay(Math.round(currentTimePlay))}</span>
 						<div className=''>
-							<div className='process w-[642px] max-[1240px]:max-w-[460px] max-[640px]:max-w-[340px]'>
+							<div className='process w-[642px] max-[1240px]:max-w-[460px] max-[640px]:max-w-[300px]'>
 								<div className='slider-bar'>
 									<div
 										className='slide-process'
@@ -321,7 +336,9 @@ export default function Player(params: any) {
 								</div>
 							</div>
 						</div>
-						<span className='text-sm'>{playing.timeFormat ? playing.timeFormat : formatTimePlay(duration)}</span>
+						<span className='text-sm text-[var(--text-primary)]'>
+							{playing.timeFormat ? playing.timeFormat : formatTimePlay(duration)}
+						</span>
 					</div>
 				</div>
 			</div>

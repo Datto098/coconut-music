@@ -8,7 +8,7 @@ import {UserContext, UserContextType} from '@/src/context/user-context';
 import {toast} from 'react-hot-toast';
 export default function SidebarLeft(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
-	const {isActiveHeader, theme} = appContext;
+	const {isActiveHeader, theme, isMobile, setIsActiveHeader} = appContext;
 
 	const userContext = useContext(UserContext) as UserContextType;
 	const {user} = userContext;
@@ -24,8 +24,9 @@ export default function SidebarLeft(params: any) {
 	return (
 		<div
 			data-theme={theme}
-			className='sidebar-left relative max-[1240px]:absolute max-[1240px]:top-0 max-[1240px]:left-0 max-[1240px]:bottom-0 max-[1240px]:z-10'
-			style={isActiveHeader ? {minWidth: '250px'} : {minWidth: '0px'}}
+			className={`sidebar-left relative max-[1240px]:absolute max-[1240px]:top-0 max-[1240px]:left-0 max-[1240px]:bottom-0 max-[1240px]:z-10 min-w-[0] ${
+				isActiveHeader ? 'min-w-[300px] max-[1240px]:min-w-[100%]' : 'min-w-[0]'
+			}`}
 		>
 			<ul className='menu'>
 				{menus.map((menu) => {
@@ -37,6 +38,9 @@ export default function SidebarLeft(params: any) {
 							<Link
 								onClick={() => {
 									checkUser(menu.id);
+									if (isMobile) {
+										setIsActiveHeader(false);
+									}
 								}}
 								href={user.userId !== '' ? menu.link : '/'}
 								className='flex items-center gap-3'

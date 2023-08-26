@@ -87,6 +87,7 @@ export default function LoginForm(params: any) {
 					duration-500
 					ease-linear
 					z-[10]
+					max-[840px]:w-[95%]
 					${
 						isActiveLoginForm
 							? 'translate-x-[-50%] translate-y-[-50%] opacity-[1]'

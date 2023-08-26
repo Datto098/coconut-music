@@ -56,23 +56,28 @@ export default function Home() {
 			<div className='section-wrapper'>
 				<h3 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Mới Phát Hành</h3>
 				<div className='grid grid-cols-3 gap-2 max-[940px]:grid-cols-2 max-[580px]:grid-cols-1'>
-					{newMusic &&
-						newMusic.map((music, index) => {
-							return (
-								<Music
-									imageMusic={music.image_music}
-									key={music._id}
-									musicName={music.name_music}
-									mucisId={music._id}
-									musicSrc={music.src_music}
-									category={music.category}
-									singerName={music.name_singer}
-									timeFormat={music.time_format}
-									index={index}
-									type={music.type}
-								/>
-							);
-						})}
+					{newMusic.length > 0
+						? newMusic.map((music, index) => {
+								return (
+									<Music
+										imageMusic={music.image_music}
+										key={music._id}
+										musicName={music.name_music}
+										mucisId={music._id}
+										musicSrc={music.src_music}
+										category={music.category}
+										singerName={music.name_singer}
+										timeFormat={music.time_format}
+										index={index}
+										type={music.type}
+									/>
+								);
+						  })
+						: Array(12)
+								.fill(0)
+								.map((item: any, index: number) => {
+									return <Music.loading key={index} />;
+								})}
 				</div>
 				<Button
 					primary
@@ -110,23 +115,28 @@ export default function Home() {
 			<div className='section-wrapper'>
 				<h3 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Top view</h3>
 				<div className='grid grid-cols-3 gap-2 max-[940px]:grid-cols-2 max-[580px]:grid-cols-1'>
-					{topViewMusic &&
-						topViewMusic.map((music, index) => {
-							return (
-								<Music
-									imageMusic={music.image_music}
-									key={music._id}
-									musicName={music.name_music}
-									mucisId={music._id}
-									musicSrc={music.src_music}
-									category={music.category}
-									singerName={music.name_singer}
-									timeFormat={music.time_format}
-									index={index}
-									type={music.type}
-								/>
-							);
-						})}
+					{topViewMusic.length > 0
+						? topViewMusic.map((music, index) => {
+								return (
+									<Music
+										imageMusic={music.image_music}
+										key={music._id}
+										musicName={music.name_music}
+										mucisId={music._id}
+										musicSrc={music.src_music}
+										category={music.category}
+										singerName={music.name_singer}
+										timeFormat={music.time_format}
+										index={index}
+										type={music.type}
+									/>
+								);
+						  })
+						: Array(12)
+								.fill(0)
+								.map((item: any, index: number) => {
+									return <Music.loading key={index} />;
+								})}
 				</div>
 				<Button
 					primary

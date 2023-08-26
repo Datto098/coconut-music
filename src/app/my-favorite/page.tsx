@@ -27,7 +27,7 @@ export default function HistoryPage(params: any) {
 			<h1 className='text-center text-[var(--text-primary)] text-[20px] font-[500] mb-4 p-4  bg-[var(--light-gray)] rounded-xl page-title m-auto'>
 				Danh sách nhạc yêu thích
 			</h1>
-			<div className='grid grid-cols-4 gap-3'>
+			<div className='grid grid-cols-4 gap-3 max-[940px]:grid-cols-3 max-[840px]:grid-cols-2 max-[640px]:grid-cols-1'>
 				{favorite.length > 0
 					? favorite.map((music: any, index: number) => {
 							return (

@@ -1,5 +1,5 @@
 'use client';
-import {createContext, useMemo, useState} from 'react';
+import {createContext, useEffect, useMemo, useState} from 'react';
 
 export type AppContextType = {
 	isActiveHeader: boolean;
@@ -12,6 +12,10 @@ export type AppContextType = {
 	setIsActiveSignUpForm: React.Dispatch<React.SetStateAction<boolean>>;
 	isActiveUploadForm: boolean;
 	setIsActiveUploadForm: React.Dispatch<React.SetStateAction<boolean>>;
+	isMobile: boolean;
+	setIsMobile: React.Dispatch<React.SetStateAction<boolean>>;
+	isActivePlayer: boolean;
+	setIsActivePlayer: React.Dispatch<React.SetStateAction<boolean>>;
 	theme: string;
 	setTheme: React.Dispatch<React.SetStateAction<string>>;
 };
@@ -24,7 +28,16 @@ export default function AppProvider(params: any) {
 	const [isActiveLoginForm, setIsActiveLoginForm] = useState<boolean>(false);
 	const [isActiveSignUpForm, setIsActiveSignUpForm] = useState<boolean>(false);
 	const [isActiveUploadForm, setIsActiveUploadForm] = useState<boolean>(false);
-	const [theme, setTheme] = useState<string>('dark');
+	const [isMobile, setIsMobile] = useState<boolean>(false);
+	const [isActivePlayer, setIsActivePlayer] = useState<boolean>(false);
+	const [theme, setTheme] = useState<string>('light');
+
+	useEffect(() => {
+		if (window.innerWidth <= 1240) {
+			setIsMobile(true);
+		}
+	}, []);
+
 	const value = useMemo<AppContextType>(
 		() => ({
 			isActiveHeader,
@@ -39,6 +52,10 @@ export default function AppProvider(params: any) {
 			setIsActiveUploadForm,
 			theme,
 			setTheme,
+			isMobile,
+			setIsMobile,
+			isActivePlayer,
+			setIsActivePlayer,
 		}),
 		[
 			isActiveHeader,
@@ -53,6 +70,10 @@ export default function AppProvider(params: any) {
 			setIsActiveUploadForm,
 			theme,
 			setTheme,
+			isMobile,
+			setIsMobile,
+			isActivePlayer,
+			setIsActivePlayer,
 		]
 	);
 	return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
