@@ -89,8 +89,8 @@ export default function MusicCard(params: MusicProps) {
 			</div>
 			<div className='music-infor mt-2'>
 				<div className='music-infor flex flex-col whitespace-nowrap overflow-hidden'>
-					<span className='music-name text-[var(--text-primary)]'>{musicName}</span>
-					<span className='text-sm text-[var(--text-secondary)]'>{singerName}</span>
+					<h2 className='music-name text-[var(--text-primary)]'>{musicName}</h2>
+					<h2 className='text-sm text-[var(--text-secondary)]'>{singerName}</h2>
 				</div>
 			</div>
 		</div>

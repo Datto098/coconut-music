@@ -61,8 +61,8 @@ function Music(params: MusicProps) {
 				</div>
 			</div>
 			<div className='music-infor flex flex-col'>
-				<span className='music-name text-[var(--text-primary)]'>{musicName}</span>
-				<span className='singer-name text-sm text-[var(--text-secondary)]'>{singerName}</span>
+				<h2 className='music-name text-[var(--text-primary)]'>{musicName}</h2>
+				<h2 className='singer-name text-sm text-[var(--text-secondary)]'>{singerName}</h2>
 			</div>
 			<div
 				onClick={async () => {
