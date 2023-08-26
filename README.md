@@ -1,7 +1,7 @@
 # Coconut Music - Trang web nghe nhạc trực tuyến
 
 Chào mừng bạn đến với trang web nghe nhạc trực tuyến! Dưới đây là một hướng dẫn sơ bộ về cách sử dụng các chức năng
-chính của trang web.
+chính của trang web. <br>
 
 ![Trang chủ](/public/images/homepage-dark.png) ![Trang chủ](/public/images/homepage-light.png)
 
@@ -24,7 +24,7 @@ Endpoint: `POST /api/users/login`
 
 #### Đăng ký
 
-Endpoint: POST /api/users/sign-up
+Endpoint: `POST /api/users/sign-up`
 
 Để đăng ký tài khoản, bạn cần gửi yêu cầu POST đến đường dẫn trên với dữ liệu sau:
 
@@ -38,29 +38,29 @@ Endpoint: POST /api/users/sign-up
 
 ### Chức năng nghe nhạc
 
-- Chú ý param mặc định sẽ có dang: ?\_limit=12
+- Chú ý param mặc định sẽ có dang: `?\_limit=12`
 
 #### Bài hát trending
 
-Endpoint: GET /api/music/trending?\_limit=12
+Endpoint: `GET /api/music/trending?\_limit=12`
 
 Để lấy danh sách các bài hát đang trending, bạn có thể gửi yêu cầu GET đến đường dẫn trên.
 
 #### Bài hát top lượt xem
 
-Endpoint: GET /api/music/top-view?\_limit=12
+Endpoint: `GET /api/music/top-view?\_limit=12`
 
 Để lấy danh sách các bài hát có lượt xem cao nhất, bạn có thể gửi yêu cầu GET đến đường dẫn trên.
 
 #### Bài hát yêu thích
 
-Endpoint: GET /api/music/favorite?\_limit=12
+Endpoint: `GET /api/music/favorite?\_limit=12`
 
 Để lấy danh sách các bài hát trong danh sách yêu thích của bạn, bạn có thể gửi yêu cầu GET đến đường dẫn trên.
 
 #### Bài hát mới nổi
 
-Endpoint: GET /api/music/new-music?\_limit=12
+Endpoint: `GET /api/music/new-music?\_limit=12`
 
 Để lấy danh sách các bài hát mới nổi, bạn có thể gửi yêu cầu GET đến đường dẫn trên.
 
