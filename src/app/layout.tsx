@@ -12,11 +12,12 @@ import Player from '../components/player/player';
 import './globals.css';
 import '../styles/home.css';
 import '../styles/custome.css';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
 	title: 'Coconut MP3',
 	description:
-		'Dịch vụ nhạc số với hàng triệu bài hát và MV có bản quyền chất lượng cao, giúp bạn nghe nhạc, tải nhạc, upload và đồng bộ kho nhạc của tôi trên nhiều thiết ...',
+		'Dịch vụ nhạc số 1 với hàng triệu bài hát và MV có bản quyền chất lượng cao, giúp bạn nghe nhạc, tải nhạc, upload và đồng bộ kho nhạc của tôi trên nhiều thiết ...',
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
