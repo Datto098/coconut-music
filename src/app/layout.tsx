@@ -14,9 +14,9 @@ import '../styles/home.css';
 import '../styles/custome.css';
 
 export const metadata: Metadata = {
-	title: 'Coconut MP3',
+	title: 'Coconut MP3 - Dịch vụ nghe nhạc trực tuyến',
 	description:
-		'Dịch vụ nhạc số 1 với hàng triệu bài hát và MV có bản quyền chất lượng cao, giúp bạn nghe nhạc, tải nhạc, upload và đồng bộ kho nhạc của tôi trên nhiều thiết ...',
+		'Coconut MP3 - Dịch vụ nhạc số 1 với hàng triệu bài hát và MV có bản quyền chất lượng cao. Nghe nhạc, tải nhạc, tạo danh sách phát và đồng bộ kho nhạc cá nhân trên nhiều thiết bị.',
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
