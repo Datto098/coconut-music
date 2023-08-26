@@ -12,7 +12,6 @@ import Player from '../components/player/player';
 import './globals.css';
 import '../styles/home.css';
 import '../styles/custome.css';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
 	title: 'Coconut MP3',

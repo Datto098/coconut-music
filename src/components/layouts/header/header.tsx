@@ -40,8 +40,9 @@ export default function Header(params: any) {
 						src={theme === 'dark' ? '/coconut-logo.png' : '/coconut-logo-dark.png'}
 						width={144}
 						height={28}
-						alt='Logo'
+						alt='Coconut Music'
 					/>
+					<h1 className='opacity hidden'>Coconut Music</h1>
 				</div>
 				<div className='box-search flex-1 px-[90px] max-[860px]:hidden'>
 					<Input

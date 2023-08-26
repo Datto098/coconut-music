@@ -9,8 +9,8 @@ import Link from 'next/link';
 import Button from '@/src/components/button/button';
 import SliderMusic from '@/src/components/slide/slider-music';
 import {settingsSliderImage, settingsSliderMusic} from '@/src/variables/slider-setting';
-import '../styles/slider-custome.css';
 import {AppContext, AppContextType} from '../context/app-context';
+import '../styles/slider-custome.css';
 
 export default function Home() {
 	const musicContext = useContext(MusicContext) as MusicContextType;
@@ -25,7 +25,7 @@ export default function Home() {
 			data-theme={theme}
 		>
 			<div className='section-wrapper'>
-				<h3 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Hot</h3>
+				<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Hot</h2>
 				<SliderImage
 					settings={settingsSliderImage}
 					slideData={sliderData}
@@ -33,7 +33,7 @@ export default function Home() {
 				/>
 			</div>
 			<div className='section-wrapper'>
-				<h3 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] flex items-center justify-between sec-title'>
+				<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] flex items-center justify-between sec-title'>
 					Xu Hướng
 					<Link
 						href='/music/trending'
@@ -41,7 +41,7 @@ export default function Home() {
 					>
 						Xem tất cả
 					</Link>
-				</h3>
+				</h2>
 				<div className=''>
 					{trendingMusic && (
 						<SliderMusic
@@ -54,7 +54,7 @@ export default function Home() {
 				</div>
 			</div>
 			<div className='section-wrapper'>
-				<h3 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Mới Phát Hành</h3>
+				<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Mới Phát Hành</h2>
 				<div className='grid grid-cols-3 gap-2 max-[940px]:grid-cols-2 max-[580px]:grid-cols-1'>
 					{newMusic.length > 0
 						? newMusic.map((music, index) => {
@@ -93,7 +93,7 @@ export default function Home() {
 				</Button>
 			</div>
 			<div className='section-wrapper'>
-				<h3 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] flex items-center justify-between sec-title'>
+				<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] flex items-center justify-between sec-title'>
 					Top yêu thích
 					<Link
 						href='/music/favorite'
@@ -101,7 +101,7 @@ export default function Home() {
 					>
 						Xem tất cả
 					</Link>
-				</h3>
+				</h2>
 				<div className=''>
 					{favoriteMusic && (
 						<SliderMusic
@@ -113,7 +113,7 @@ export default function Home() {
 				</div>
 			</div>
 			<div className='section-wrapper'>
-				<h3 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Top view</h3>
+				<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Top view</h2>
 				<div className='grid grid-cols-3 gap-2 max-[940px]:grid-cols-2 max-[580px]:grid-cols-1'>
 					{topViewMusic.length > 0
 						? topViewMusic.map((music, index) => {

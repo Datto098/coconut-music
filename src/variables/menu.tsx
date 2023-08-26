@@ -1,4 +1,4 @@
-import {CloudUploadOutlined, HeartOutlined, HistoryOutlined, HomeOutlined} from '@ant-design/icons';
+import {CloudUploadOutlined, HeartOutlined, HomeOutlined} from '@ant-design/icons';
 
 export const menus = [
 	{

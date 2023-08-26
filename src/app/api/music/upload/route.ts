@@ -2,8 +2,8 @@ import connect from '@/src/database/config';
 import Music from '@/src/models/musicModel';
 // import {writeFile} from 'fs/promises';
 import {NextRequest, NextResponse} from 'next/server';
-import fs from 'fs';
-import util from 'util';
+// import fs from 'fs';
+// import util from 'util';
 
 // const stat = util.promisify(fs.stat);
 // const mkdir = util.promisify(fs.mkdir);
