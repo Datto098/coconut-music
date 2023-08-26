@@ -5,15 +5,11 @@ chính của trang web.
 
 ![Trang chủ](/public/images/homepage-dark.png) ![Trang chủ](/public/images/homepage-light.png)
 
----
-
 ## API Documentation
 
----
+### Chức năng người dùng
 
-## Chức năng người dùng
-
-### Đăng nhập
+#### Đăng nhập
 
 Endpoint: `POST /api/users/login`
 
@@ -26,7 +22,7 @@ Endpoint: `POST /api/users/login`
 }
 ```
 
-### Đăng ký
+#### Đăng ký
 
 Endpoint: POST /api/users/sign-up
 
@@ -40,29 +36,31 @@ Endpoint: POST /api/users/sign-up
 }
 ```
 
-## Chức năng nghe nhạc
+### Chức năng nghe nhạc
 
-### Bài hát trending
+- Chú ý param mặc định sẽ có dang: ?\_limit=12
 
-Endpoint: GET /api/music/trending
+#### Bài hát trending
+
+Endpoint: GET /api/music/trending?\_limit=12
 
 Để lấy danh sách các bài hát đang trending, bạn có thể gửi yêu cầu GET đến đường dẫn trên.
 
-### Bài hát top lượt xem
+#### Bài hát top lượt xem
 
-Endpoint: GET /api/music/top-view
+Endpoint: GET /api/music/top-view?\_limit=12
 
 Để lấy danh sách các bài hát có lượt xem cao nhất, bạn có thể gửi yêu cầu GET đến đường dẫn trên.
 
-### Bài hát yêu thích
+#### Bài hát yêu thích
 
-Endpoint: GET /api/music/favorite
+Endpoint: GET /api/music/favorite?\_limit=12
 
 Để lấy danh sách các bài hát trong danh sách yêu thích của bạn, bạn có thể gửi yêu cầu GET đến đường dẫn trên.
 
-### Bài hát mới nổi
+#### Bài hát mới nổi
 
-Endpoint: GET /api/music/new-music
+Endpoint: GET /api/music/new-music?\_limit=12
 
 Để lấy danh sách các bài hát mới nổi, bạn có thể gửi yêu cầu GET đến đường dẫn trên.
 
