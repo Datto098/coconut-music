@@ -3,4 +3,28 @@
     <loc>https://coconutmp3.vercel.app/</loc>
     <lastmod>2023-08-26</lastmod>
   </url>
+  <url>
+    <loc>https://coconutmp3.vercel.app/music/trending</loc>
+    <lastmod>2023-08-27</lastmod>
+  </url>
+  <url>
+    <loc>https://coconutmp3.vercel.app/music/new-music</loc>
+    <lastmod>2023-08-27</lastmod>
+  </url>
+  <url>
+    <loc>https://coconutmp3.vercel.app/music/top-view</loc>
+    <lastmod>2023-08-27</lastmod>
+  </url>
+  <url>
+    <loc>https://coconutmp3.vercel.app/music/favorite</loc>
+    <lastmod>2023-08-27</lastmod>
+  </url>
+  <url>
+    <loc>https://coconutmp3.vercel.app/music/my-favorite</loc>
+    <lastmod>2023-08-27</lastmod>
+  </url>
+  <url>
+    <loc>https://coconutmp3.vercel.app/music/my-playlist</loc>
+    <lastmod>2023-08-27</lastmod>
+  </url>
 </urlset>
