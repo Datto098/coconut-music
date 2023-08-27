@@ -48,7 +48,7 @@ export default function Home() {
 							settings={settingsSliderMusic}
 							slideData={trendingMusic}
 							type='trending'
-							className='max-h-[300px] overflow-hidden'
+							className=''
 						/>
 					)}
 				</div>

@@ -2,19 +2,17 @@
 import Button from '@/src/components/button/button';
 import Music from '@/src/components/music/music';
 import {AppContext, AppContextType} from '@/src/context/app-context';
-import {MusicContext, MusicContextType} from '@/src/context/music-context';
 import {getData} from '@/src/helpers/axiosClient';
 import {CaretLeftOutlined, ClockCircleOutlined} from '@ant-design/icons';
 import Image from 'next/image';
 import Link from 'next/link';
-import {useContext, useEffect} from 'react';
+import {useContext, useEffect, useState} from 'react';
 
 export default function FavoritePage(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
 	const {theme} = appContext;
 
-	const musicContext = useContext(MusicContext) as MusicContextType;
-	const {playlist, setPlayList} = musicContext;
+	const [playlist, setPlayList] = useState([]);
 
 	useEffect(() => {
 		getData('/api/music/new-music?_limit=100', setPlayList);

@@ -15,7 +15,7 @@ export default function SidebarRight(params: any) {
 		<div
 			data-theme={theme}
 			className={`sidebar-right max-[1240px]:absolute max-[1240px]:top-0 max-[1240px]:right-0 max-[1240px]:bottom-0 max-[1240px]:z-10 ${
-				isActivePlaylist ? 'min-w-[350px] max-[1240px]:min-w-[100%]' : 'min-w-[0]'
+				isActivePlaylist ? 'min-w-[350px] max-[1240px]:min-w-[100%] ml-3' : 'ml-0 min-w-[0]'
 			}`}
 		>
 			<div className='sidebar-title'>

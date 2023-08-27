@@ -15,11 +15,21 @@
     transition: all 0.3s ease;
 }
 
-.music:hover .image-music img {
+/* .music:hover .image-music img {
     transform: scale(1.2);
-}
+} */
 
 .music:hover .image-music .player {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.more-action {
+    display: none;
+}
+
+.music:hover .more-action {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -111,6 +121,7 @@
 .player-bar {
     transform: translateY(100%);
     transition: all 0.3s ease;
+    background: var(--player);
 }
 
 .play-list {
@@ -126,8 +137,13 @@
     transition: all 0.3s ease;
 }
 
+.data-music .music {
+    background-color: transparent;
+}
+
 .data-music:hover .music {
     background-color: transparent;
+    box-shadow: none;
 }
 
 .history-card .play {

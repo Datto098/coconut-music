@@ -27,7 +27,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 					<MusicProvider>
 						<body>
 							<Header />
-							<div className='home'>
+							<div className='home mt-3'>
 								<Toaster />
 								<SidebarLeft />
 								{children}

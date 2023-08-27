@@ -2,19 +2,16 @@
 import Button from '@/src/components/button/button';
 import Music from '@/src/components/music/music';
 import {AppContext, AppContextType} from '@/src/context/app-context';
-import {MusicContext, MusicContextType} from '@/src/context/music-context';
 import {getData} from '@/src/helpers/axiosClient';
 import {CaretLeftOutlined, ClockCircleOutlined} from '@ant-design/icons';
 import Image from 'next/image';
 import Link from 'next/link';
-import {useContext, useEffect} from 'react';
+import {useContext, useEffect, useState} from 'react';
 
 export default function TrendingPage(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
 	const {theme} = appContext;
-
-	const musicContext = useContext(MusicContext) as MusicContextType;
-	const {playlist, setPlayList} = musicContext;
+	const [playlist, setPlayList] = useState([]);
 
 	useEffect(() => {
 		getData('/api/music/trending?_limit=100', setPlayList);
@@ -50,9 +47,7 @@ export default function TrendingPage(params: any) {
 						</span>
 					</div>
 					<div className='h-full flex flex-col justify-end'>
-						<h1 className='page-music-title max-[1024px]:text-[2rem] max-[830px]:py-2'>
-							Bài hát hàng đầu tại Toàn Cầu
-						</h1>
+						<h1 className='page-music-title max-[1024px]:text-[2rem] max-[830px]:py-2'>Bài hát hàng đầu</h1>
 						<p className='text-[var(--text-secondary)]'>
 							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias obcaecati ipsum voluptate quas aliquid
 							voluptas sit earum doloribus, facilis repudiandae maxime corrupti accusamus delectus pariatur nemo

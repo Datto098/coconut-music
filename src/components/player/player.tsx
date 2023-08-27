@@ -221,7 +221,7 @@ export default function Player(params: any) {
 	return (
 		<div
 			data-theme={theme}
-			className='player-bar px-2 py-3 fixed bg-[var(--background-dark)] bottom-0 left-0 w-full right-0 border-[var(--light-gray)] border-t z-2 flex items-center justify-between
+			className='player-bar px-2 py-3 fixed bottom-0 left-0 w-full right-0 border-[var(--light-gray)] border-t z-2 flex items-center justify-between
 			max-[1240px]:flex-col-reverse z-[11]'
 			style={isActivePlayer ? {transform: 'translateY(0)'} : {transform: 'translateY(100%)'}}
 		>

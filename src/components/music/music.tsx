@@ -8,6 +8,7 @@ import {useContext} from 'react';
 import {toast} from 'react-hot-toast';
 import '../../styles/music.css';
 import Skeleton from '../loading/loadingSkeleton';
+import Button from '../button/button';
 function Music(params: MusicProps) {
 	const {imageMusic, mucisId, singerName, musicSrc, type, musicName, category, index, timeFormat} = params;
 	const musicContext = useContext(MusicContext) as MusicContextType;
@@ -19,7 +20,7 @@ function Music(params: MusicProps) {
 		<div
 			className={`${
 				playing.mucisId === mucisId ? 'active' : ''
-			} music flex items-center gap-2 p-[10px] rounded-lg cursor-pointer hover:bg-[var(--brown-rgba)] relative transition-all duration-300 ease-linear`}
+			} music flex items-center gap-2 p-[10px] rounded-lg cursor-pointer bg-[var(--gray)] hover:shadow-xl relative transition-all duration-300 ease-linear`}
 		>
 			<div className='image-music rounded-lg overflow-hidden relative'>
 				<Image
@@ -29,8 +30,9 @@ function Music(params: MusicProps) {
 					height={60}
 					className='overflow-hidden object-cover w-[60px] h-[60px] max-[830px]:w-[50px] max-[830px]:h-[50px]'
 				/>
-				<div className='player absolute bg-[rgba(0,0,0,0.5)] top-0 left-0 w-full bottom-0 transition-all duration-300 ease-linear hidden'>
-					<div
+				<div className='player absolute bg-[rgba(0,0,0,0.5)] top-0 left-0 w-full bottom-0 transition-all rounded-lg duration-300 ease-linear hidden'>
+					<Button
+						rounded
 						onClick={() => {
 							if (playing.mucisId !== mucisId) {
 								clearPlayer();
@@ -57,14 +59,15 @@ function Music(params: MusicProps) {
 						className='transition-all duration-300 ease-linear p-4  w-[44px] h-[44px] text-[20px] rounded-full flex items-center justify-center'
 					>
 						<PlayCircleOutlined />
-					</div>
+					</Button>
 				</div>
 			</div>
 			<div className='music-infor flex flex-col'>
 				<h2 className='music-name text-[var(--text-primary)]'>{musicName}</h2>
 				<h2 className='singer-name text-sm text-[var(--text-secondary)]'>{singerName}</h2>
 			</div>
-			<div
+			<Button
+				rounded
 				onClick={async () => {
 					if (user.userId !== '') {
 						const response = await postData('/api/music/my-favorite', {
@@ -80,10 +83,10 @@ function Music(params: MusicProps) {
 						}
 					}
 				}}
-				className='more-action transition-all duration-300 ease-linear p-4 bg-[var(--light-gray)] w-[44px] h-[44px] text-[20px] rounded-full hidden items-center justify-center absolute top-[50%] right-[12px] translate-y-[-50%]'
+				className='more-action transition-all duration-300 ease-linear p-4 bg-[var(--light-gray)] w-[44px] h-[44px] text-[20px] rounded-full items-center justify-center absolute top-[50%] right-[12px] translate-y-[-50%] hidden'
 			>
 				<HeartOutlined />
-			</div>
+			</Button>
 		</div>
 	);
 }

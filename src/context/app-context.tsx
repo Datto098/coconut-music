@@ -1,4 +1,5 @@
 'use client';
+import {stringify} from 'querystring';
 import {createContext, useEffect, useMemo, useState} from 'react';
 
 export type AppContextType = {
@@ -21,22 +22,34 @@ export type AppContextType = {
 };
 
 export const AppContext = createContext<AppContextType | undefined>(undefined);
+
+const themeStorage: any = localStorage.getItem('theme') || undefined;
+
 export default function AppProvider(params: any) {
 	const {children} = params;
-	const [isActiveHeader, setIsActiveHeader] = useState<boolean>(false);
-	const [isActivePlaylist, setIsActivePlaylist] = useState<boolean>(false);
+	const [isMobile, setIsMobile] = useState<boolean>(false);
 	const [isActiveLoginForm, setIsActiveLoginForm] = useState<boolean>(false);
 	const [isActiveSignUpForm, setIsActiveSignUpForm] = useState<boolean>(false);
 	const [isActiveUploadForm, setIsActiveUploadForm] = useState<boolean>(false);
-	const [isMobile, setIsMobile] = useState<boolean>(false);
+	const [isActivePlaylist, setIsActivePlaylist] = useState<boolean>(false);
 	const [isActivePlayer, setIsActivePlayer] = useState<boolean>(false);
-	const [theme, setTheme] = useState<string>('light');
+	const [isActiveHeader, setIsActiveHeader] = useState<boolean>(false);
+	const [theme, setTheme] = useState<string>(themeStorage ? themeStorage : 'dark');
 
 	useEffect(() => {
 		if (window.innerWidth <= 1240) {
 			setIsMobile(true);
 		}
 	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('theme', theme);
+		const storage = localStorage.getItem('theme');
+	}, [theme]);
+
+	useEffect(() => {
+		document.querySelector('body')?.setAttribute('data-theme', theme);
+	}, [theme]);
 
 	const value = useMemo<AppContextType>(
 		() => ({

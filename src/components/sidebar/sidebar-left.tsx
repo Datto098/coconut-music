@@ -25,14 +25,14 @@ export default function SidebarLeft(params: any) {
 		<div
 			data-theme={theme}
 			className={`sidebar-left relative max-[1240px]:absolute max-[1240px]:top-0 max-[1240px]:left-0 max-[1240px]:bottom-0 max-[1240px]:z-10 min-w-[0] ${
-				isActiveHeader ? 'min-w-[300px] max-[1240px]:min-w-[100%]' : 'min-w-[0]'
+				isActiveHeader ? 'min-w-[300px] max-[1240px]:min-w-[100%] mr-3' : 'mr-0 min-w-[-0]'
 			}`}
 		>
 			<ul className='menu'>
 				{menus.map((menu) => {
 					return (
 						<li
-							className='menu-item flex items-center'
+							className='menu-item flex items-center text-lg'
 							key={menu.id}
 						>
 							<Link

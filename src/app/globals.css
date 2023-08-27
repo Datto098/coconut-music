@@ -14,6 +14,12 @@
   --text-primary: #fff;
   --background-dark: #000;
   --brown-rgba: #333235cc;
+  --loading-background: #121212;
+  --loading: rgba(255, 255, 255, 0.2);
+  --body-background: #090909;
+  --linear-bg: linear-gradient(45deg, #090909, #242424, #121212);
+  --gray: #171717;
+  --player: radial-gradient(circle at -8.9% 51.2%, rgb(255, 124, 0) 0%, rgb(255, 124, 0) 15.9%, rgb(255, 163, 77) 15.9%, rgb(255, 163, 77) 24.4%, #242424 24.5%, #121212 66%);
 }
 
 [data-theme="light"] {
@@ -26,6 +32,13 @@
   --text-primary: #090909;
   --background-dark: #eee;
   --brown-rgba: #46454733;
+  --loading-background: #e2e5e7;
+  --loading: rgba(255, 255, 255, 0.5);
+  --body-background: #ccc;
+  --linear-bg: linear-gradient(45deg, #ccc, #eee, #fff);
+  --gray: #fff;
+  --player: radial-gradient(circle at -8.9% 51.2%, #27ae60 0%, #27ae60 15.9%, #51c581 15.9%, #82e0a9 24.4%, #fff 24.5%, #eee 66%);
+
 }
 
 * {
@@ -39,9 +52,9 @@ body {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  color: var(--text-primary);
   font-weight: 500;
-  background-color: var(--background);
+  color: var(--text-primary);
+  background-color: var(--body-background);
 }
 
 ul ol {

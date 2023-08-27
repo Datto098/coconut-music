@@ -6,6 +6,8 @@
     color: var(--text-primary);
     transition: all 0.3s ease;
     overflow: hidden;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
 }
 
 .sidebar-left .menu {
@@ -13,7 +15,7 @@
 }
 
 .sidebar-left .menu .menu-item {
-    width: 250px;
+    width: 350px;
     padding: 12px 15px;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -35,6 +37,8 @@
     background-color: var(--brown);
     overflow: hidden;
     transition: all 0.3s ease;
+    border-bottom-left-radius: 16px;
+    border-top-left-radius: 16px;
 }
 
 .sidebar-right .play-list {
@@ -64,5 +68,6 @@
 }
 
 .play-list .music {
+    background-color: transparent;
     border-radius: 0px;
 }
