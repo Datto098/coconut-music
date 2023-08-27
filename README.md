@@ -76,4 +76,4 @@ Endpoint: `GET /api/music/new-music?_limit=12`
 
 4.Tải lên các bài hát yêu thích của bạn để có thể nghe chúng mọi lúc mọi nơi.
 
-Trang web chính: [Trang chủ](https://coconut-music.vercel.app)
+Trang web chính: [Trang chủ](https://coconutmp3.vercel.app)
