@@ -1,5 +1,4 @@
 'use client';
-import {stringify} from 'querystring';
 import {createContext, useEffect, useMemo, useState} from 'react';
 
 export type AppContextType = {
@@ -23,9 +22,8 @@ export type AppContextType = {
 
 export const AppContext = createContext<AppContextType | undefined>(undefined);
 
-const themeStorage: any = localStorage.getItem('theme') || undefined;
-
 export default function AppProvider(params: any) {
+	const themeStorage = typeof window !== 'undefined' ? localStorage.getItem('theme') || undefined : undefined;
 	const {children} = params;
 	const [isMobile, setIsMobile] = useState<boolean>(false);
 	const [isActiveLoginForm, setIsActiveLoginForm] = useState<boolean>(false);
