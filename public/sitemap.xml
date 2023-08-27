@@ -19,12 +19,4 @@
     <loc>https://coconutmp3.vercel.app/music/favorite</loc>
     <lastmod>2023-08-27</lastmod>
   </url>
-  <url>
-    <loc>https://coconutmp3.vercel.app/music/my-favorite</loc>
-    <lastmod>2023-08-27</lastmod>
-  </url>
-  <url>
-    <loc>https://coconutmp3.vercel.app/music/my-playlist</loc>
-    <lastmod>2023-08-27</lastmod>
-  </url>
 </urlset>

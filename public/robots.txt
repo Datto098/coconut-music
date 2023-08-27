@@ -1,8 +1,4 @@
 User-agent: *
-Disallow: /music/favorite/
-Disallow: /music/trending/
-Disallow: /music/top-view/
-Disallow: /music/new-music/
 Disallow: /my-favorite/
 Disallow: /my-playlist/
 Disallow: /dashboard/
