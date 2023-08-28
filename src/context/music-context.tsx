@@ -33,6 +33,8 @@ export type MusicContextType = {
 	setVolume: React.Dispatch<React.SetStateAction<number>>;
 	playlist: any[];
 	setPlayList: React.Dispatch<React.SetStateAction<any[]>>;
+	slideData: any[];
+	setSlideData: React.Dispatch<React.SetStateAction<any[]>>;
 };
 
 export const MusicContext = createContext<MusicContextType | undefined>(undefined);
@@ -61,10 +63,11 @@ export default function MusicProvider(params: any) {
 	const [isLoop, setIsLoop] = useState<boolean>(false);
 	const [volume, setVolume] = useState<number>(1);
 	const [playlist, setPlayList] = useState<any[]>([]);
+	const [slideData, setSlideData] = useState<any[]>([]);
 
 	useEffect(() => {
 		if (playing.mucisId !== '') {
-			getData(`/api/music/${playing.type}`, setPlayList);
+			getData(`/api/music/${playing.type}?_limit=100`, setPlayList);
 		}
 	}, [playing]);
 
@@ -122,6 +125,7 @@ export default function MusicProvider(params: any) {
 		await getData('/api/music/new-music', setNewMusic);
 		await getData('/api/music/favorite', setFavoriteMusic);
 		await getData('/api/music/top-view', setTopViewMusic);
+		await getData('/api/music/banner', setSlideData);
 	};
 
 	useEffect(() => {
@@ -158,6 +162,8 @@ export default function MusicProvider(params: any) {
 			reLoad,
 			playlist,
 			setPlayList,
+			slideData,
+			setSlideData,
 		}),
 		[
 			playing,
@@ -187,6 +193,8 @@ export default function MusicProvider(params: any) {
 			reLoad,
 			playlist,
 			setPlayList,
+			slideData,
+			setSlideData,
 		]
 	);
 	return (

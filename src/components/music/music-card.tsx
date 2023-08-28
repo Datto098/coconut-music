@@ -25,13 +25,12 @@ export default function MusicCard(params: MusicProps) {
 					src={imageMusic}
 					width={100}
 					height={100}
-					className={`object-cover rounded-lg transition-all overflow-hidden duration-300 ease-linear w-[110px] h-[110px]`}
+					className={`object-cover rounded-lg transition-all overflow-hidden duration-300 ease-linear w-[100%] h-[auto]`}
 					alt={musicName}
 				/>
 				<div className='player absolute bg-[rgba(0,0,0,0.5)] top-0 left-0 w-full bottom-0 transition-all duration-300 ease-linear rounded-lg hidden'>
 					<Button
 						rounded
-						className='transition-all duration-300 ease-linear p-4 hover:bg-[var(--light-gray)] w-[44px] h-[44px] text-[20px] rounded-full flex items-center justify-center'
 						onClick={async () => {
 							if (user.userId !== '') {
 								const response = await postData('/api/music/my-favorite', {
@@ -75,7 +74,6 @@ export default function MusicCard(params: MusicProps) {
 								}
 							}
 						}}
-						className='transition-all duration-300 ease-linear p-4 hover:bg-[var(--light-gray)] w-[44px] h-[44px] text-[20px] rounded-full flex items-center justify-center'
 					>
 						<PlayCircleOutlined />
 					</Button>

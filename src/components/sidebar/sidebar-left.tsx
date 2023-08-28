@@ -1,17 +1,22 @@
 'use client';
-import '../../styles/sidebar.css';
 import {menus} from '../../variables/menu';
 import Link from 'next/link';
-import {useContext} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {AppContext, AppContextType} from '@/src/context/app-context';
 import {UserContext, UserContextType} from '@/src/context/user-context';
 import {toast} from 'react-hot-toast';
+import '../../styles/sidebar.css';
+import {usePathname} from 'next/navigation';
+
 export default function SidebarLeft(params: any) {
+	const router = usePathname();
 	const appContext = useContext(AppContext) as AppContextType;
 	const {isActiveHeader, theme, isMobile, setIsActiveHeader} = appContext;
 
 	const userContext = useContext(UserContext) as UserContextType;
 	const {user} = userContext;
+
+	const [pathname, setPathname] = useState('/');
 
 	const checkUser = (currentItem: any) => {
 		if (user.userId === '' && currentItem !== 0) {
@@ -20,6 +25,10 @@ export default function SidebarLeft(params: any) {
 			});
 		}
 	};
+
+	useEffect(() => {
+		setPathname(router);
+	}, [router]);
 
 	return (
 		<div
@@ -32,7 +41,9 @@ export default function SidebarLeft(params: any) {
 				{menus.map((menu) => {
 					return (
 						<li
-							className='menu-item flex items-center text-lg'
+							className={`menu-item flex items-center text-lg rounded-e-xl overflow-hidden ${
+								menu.link === pathname ? 'bg-[var(--text-primary)] text-[var(--background)]' : ''
+							}`}
 							key={menu.id}
 						>
 							<Link
@@ -43,7 +54,7 @@ export default function SidebarLeft(params: any) {
 									}
 								}}
 								href={user.userId !== '' ? menu.link : '/'}
-								className='flex items-center gap-3'
+								className={`flex items-center gap-3 `}
 							>
 								{menu.icon}
 								{menu.title}

@@ -1,8 +1,7 @@
 'use client';
 
 import SliderImage from '@/src/components/slide/slider-image';
-import {sliderData} from '@/src/variables/slider-data';
-import {useContext} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {MusicContext, MusicContextType} from '@/src/context/music-context';
 import Music from '@/src/components/music/music';
 import Link from 'next/link';
@@ -11,10 +10,11 @@ import SliderMusic from '@/src/components/slide/slider-music';
 import {settingsSliderImage, settingsSliderMusic} from '@/src/variables/slider-setting';
 import {AppContext, AppContextType} from '../context/app-context';
 import '../styles/slider-custome.css';
+import {getData} from '../helpers/axiosClient';
 
 export default function Home() {
 	const musicContext = useContext(MusicContext) as MusicContextType;
-	const {trendingMusic, newMusic, favoriteMusic, topViewMusic} = musicContext;
+	const {trendingMusic, newMusic, favoriteMusic, topViewMusic, slideData} = musicContext;
 
 	const appContext = useContext(AppContext) as AppContextType;
 	const {theme} = appContext;
@@ -28,7 +28,7 @@ export default function Home() {
 				<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Hot</h2>
 				<SliderImage
 					settings={settingsSliderImage}
-					slideData={sliderData}
+					slideData={slideData}
 					className='max-h-[300px] overflow-hidden'
 				/>
 			</div>

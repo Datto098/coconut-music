@@ -13,14 +13,8 @@ export const menus = [
 		link: '/my-favorite',
 		icon: <HeartOutlined />,
 	},
-	// {
-	// 	id: 2,
-	// 	title: 'Bài hát đã nghe',
-	// 	link: '/history',
-	// 	icon: <HistoryOutlined />,
-	// },
 	{
-		id: 3,
+		id: 2,
 		title: 'Nhạc của tôi',
 		link: '/my-playlist',
 		icon: <CloudUploadOutlined />,

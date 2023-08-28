@@ -5,6 +5,7 @@ import {getData} from '@/src/helpers/axiosClient';
 import {useContext, useEffect, useState} from 'react';
 import '../../styles/home.css';
 import {AppContext, AppContextType} from '@/src/context/app-context';
+import Image from 'next/image';
 export default function HistoryPage(params: any) {
 	const [favorite, setFavorite] = useState([]);
 	const userContext = useContext(UserContext) as UserContextType;
@@ -28,24 +29,28 @@ export default function HistoryPage(params: any) {
 				Danh sách nhạc yêu thích
 			</h1>
 			<div className='grid grid-cols-4 gap-3 max-[940px]:grid-cols-3 max-[840px]:grid-cols-2 max-[640px]:grid-cols-1'>
-				{favorite.length > 0
-					? favorite.map((music: any, index: number) => {
-							return (
-								<HistoryCard
-									key={music._id}
-									imageMusic={music.image_music}
-									musicName={music.name_music}
-									mucisId={music._id}
-									musicSrc={music.src_music}
-									category={music.category}
-									singerName={music.name_singer}
-									timeFormat={music.time_format}
-									index={index}
-									type={music.type}
-								/>
-							);
-					  })
-					: 'empty'}
+				{favorite.length > 0 ? (
+					favorite.map((music: any, index: number) => {
+						return (
+							<HistoryCard
+								key={music._id}
+								imageMusic={music.image_music}
+								musicName={music.name_music}
+								mucisId={music._id}
+								musicSrc={music.src_music}
+								category={music.category}
+								singerName={music.name_singer}
+								timeFormat={music.time_format}
+								index={index}
+								type={music.type}
+							/>
+						);
+					})
+				) : (
+					<div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] p-4 rounded-xl text-[var(--text-primary)]'>
+						<h3>Danh sách trống</h3>
+					</div>
+				)}
 			</div>
 		</div>
 	);

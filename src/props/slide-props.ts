@@ -1,4 +1,5 @@
 export interface SlideImageProps {
-  image: string;
-  titleImage?: string;
+	banner_title: string;
+	image_src: string;
+	active?: boolean;
 }

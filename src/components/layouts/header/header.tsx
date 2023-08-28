@@ -39,10 +39,10 @@ export default function Header(params: any) {
 					<Image
 						src={theme === 'dark' ? '/coconut-logo.png' : '/coconut-logo-dark.png'}
 						width={144}
-						height={28}
-						alt='Coconut Music'
+						height={50}
+						alt='Coconut MP3 - Coconut music - Player vercel app'
 					/>
-					<h1 className='opacity hidden'>Coconut Music</h1>
+					<h1 className='opacity-0 w-0 h-0'>Coconut MP3</h1>
 				</div>
 				<div className='box-search flex-1 px-[90px] max-[860px]:hidden'>
 					<Input

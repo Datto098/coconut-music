@@ -6,9 +6,9 @@ import {HeartOutlined, PlayCircleOutlined} from '@ant-design/icons';
 import Image from 'next/image';
 import {useContext} from 'react';
 import {toast} from 'react-hot-toast';
-import '../../styles/music.css';
 import Skeleton from '../loading/loadingSkeleton';
 import Button from '../button/button';
+import '../../styles/music.css';
 function Music(params: MusicProps) {
 	const {imageMusic, mucisId, singerName, musicSrc, type, musicName, category, index, timeFormat} = params;
 	const musicContext = useContext(MusicContext) as MusicContextType;
@@ -20,7 +20,7 @@ function Music(params: MusicProps) {
 		<div
 			className={`${
 				playing.mucisId === mucisId ? 'active' : ''
-			} music flex items-center gap-2 p-[10px] rounded-lg cursor-pointer bg-[var(--gray)] hover:shadow-xl relative transition-all duration-300 ease-linear`}
+			} music flex items-center gap-2 p-[10px] rounded-lg cursor-pointer bg-[transparent] hover:shadow-xl hover:bg-[var(--gray)] relative transition-all duration-100 ease-linear`}
 		>
 			<div className='image-music rounded-lg overflow-hidden relative'>
 				<Image
@@ -83,7 +83,7 @@ function Music(params: MusicProps) {
 						}
 					}
 				}}
-				className='more-action transition-all duration-300 ease-linear p-4 bg-[var(--light-gray)] w-[44px] h-[44px] text-[20px] rounded-full items-center justify-center absolute top-[50%] right-[12px] translate-y-[-50%] hidden'
+				className='more-action transition-all duration-300 ease-linear p-4 bg-[var(--light-gray)] w-[44px] h-[44px] text-[20px] rounded-full items-center justify-center absolute top-[50%] right-[12px] translate-y-[-50%] opacity-0'
 			>
 				<HeartOutlined />
 			</Button>
