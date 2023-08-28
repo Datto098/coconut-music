@@ -31,7 +31,7 @@ export default function AppProvider(params: any) {
 	const [isActiveUploadForm, setIsActiveUploadForm] = useState<boolean>(false);
 	const [isActivePlaylist, setIsActivePlaylist] = useState<boolean>(false);
 	const [isActivePlayer, setIsActivePlayer] = useState<boolean>(false);
-	const [isActiveHeader, setIsActiveHeader] = useState<boolean>(false);
+	const [isActiveHeader, setIsActiveHeader] = useState<boolean>(true);
 	const [theme, setTheme] = useState<string>(themeStorage ? themeStorage : 'dark');
 
 	useEffect(() => {
