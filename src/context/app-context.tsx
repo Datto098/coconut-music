@@ -49,6 +49,12 @@ export default function AppProvider(params: any) {
 		document.querySelector('body')?.setAttribute('data-theme', theme);
 	}, [theme]);
 
+	useEffect(() => {
+		if (isMobile) {
+			setIsActiveHeader(false);
+		}
+	}, []);
+
 	const value = useMemo<AppContextType>(
 		() => ({
 			isActiveHeader,
