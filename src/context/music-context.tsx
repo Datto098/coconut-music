@@ -121,11 +121,11 @@ export default function MusicProvider(params: any) {
 	}, [playing, playlist]);
 
 	const getSongs = async () => {
+		await getData('/api/music/banner', setSlideData);
 		await getData('/api/music/trending', setTrendingMusic);
 		await getData('/api/music/new-music', setNewMusic);
 		await getData('/api/music/favorite', setFavoriteMusic);
 		await getData('/api/music/top-view', setTopViewMusic);
-		await getData('/api/music/banner', setSlideData);
 	};
 
 	useEffect(() => {
