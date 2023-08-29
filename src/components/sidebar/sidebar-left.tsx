@@ -42,7 +42,7 @@ export default function SidebarLeft(params: any) {
 					return (
 						<li
 							className={`menu-item flex items-center text-lg rounded-e-xl overflow-hidden ${
-								menu.link === pathname ? 'bg-[var(--text-primary)] text-[var(--background)]' : ''
+								menu.link === pathname ? 'bg-[var(--purple)] text-[var(--background)]' : ''
 							}`}
 							key={menu.id}
 						>
