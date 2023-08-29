@@ -12,9 +12,9 @@ import Link from 'next/link';
 import '../../../styles/header.css';
 
 export default function Header(params: any) {
-	const [searchValue, setSearchValue] = useState('');
 	const appContext = useContext(AppContext) as AppContextType;
-	const {setIsActiveHeader, setIsActiveLoginForm, theme, setTheme, setIsActivePlayer} = appContext;
+	const {setIsActiveHeader, setIsActiveLoginForm, theme, setTheme, setIsActivePlayer, searchValue, setSearchValue} =
+		appContext;
 	const userContext = useContext(UserContext) as UserContextType;
 	const {user} = userContext;
 

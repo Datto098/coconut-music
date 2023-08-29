@@ -18,6 +18,8 @@ export type AppContextType = {
 	setIsActivePlayer: React.Dispatch<React.SetStateAction<boolean>>;
 	theme: string;
 	setTheme: React.Dispatch<React.SetStateAction<string>>;
+	searchValue: string;
+	setSearchValue: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -33,7 +35,7 @@ export default function AppProvider(params: any) {
 	const [isActivePlayer, setIsActivePlayer] = useState<boolean>(false);
 	const [isActiveHeader, setIsActiveHeader] = useState<boolean>(true);
 	const [theme, setTheme] = useState<string>(themeStorage ? themeStorage : 'dark');
-
+	const [searchValue, setSearchValue] = useState('');
 	useEffect(() => {
 		if (window.innerWidth <= 1240) {
 			setIsMobile(true);
@@ -68,6 +70,8 @@ export default function AppProvider(params: any) {
 			setIsMobile,
 			isActivePlayer,
 			setIsActivePlayer,
+			searchValue,
+			setSearchValue,
 		}),
 		[
 			isActiveHeader,
@@ -86,6 +90,8 @@ export default function AppProvider(params: any) {
 			setIsMobile,
 			isActivePlayer,
 			setIsActivePlayer,
+			searchValue,
+			setSearchValue,
 		]
 	);
 	return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
