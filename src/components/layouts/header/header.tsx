@@ -40,7 +40,7 @@ export default function Header(params: any) {
 						src={theme === 'dark' ? '/coconut-logo.png' : '/coconut-logo-dark.png'}
 						width={144}
 						height={50}
-						alt='Coconut MP3 - Coconut music - Player vercel app'
+						alt='coconut mp3'
 					/>
 					<h1 className='opacity-0 w-0 h-0'>Coconut MP3</h1>
 				</div>
