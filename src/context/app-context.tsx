@@ -37,6 +37,7 @@ export default function AppProvider(params: any) {
 	useEffect(() => {
 		if (window.innerWidth <= 1240) {
 			setIsMobile(true);
+			setIsActiveHeader(false);
 		}
 	}, []);
 
@@ -48,12 +49,6 @@ export default function AppProvider(params: any) {
 	useEffect(() => {
 		document.querySelector('body')?.setAttribute('data-theme', theme);
 	}, [theme]);
-
-	useEffect(() => {
-		if (isMobile) {
-			setIsActiveHeader(false);
-		}
-	}, []);
 
 	const value = useMemo<AppContextType>(
 		() => ({
