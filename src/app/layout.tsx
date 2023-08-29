@@ -9,6 +9,7 @@ import LoginForm from '../components/form/login';
 import SignUpForm from '../components/form/signUp';
 import SidebarRight from '../components/sidebar/sidebar-right';
 import Player from '../components/player/player';
+import {Analytics} from '@vercel/analytics/react';
 import './globals.css';
 import '../styles/home.css';
 import '../styles/custome.css';
@@ -35,6 +36,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 								<SignUpForm />
 								<SidebarRight />
 								<Player />
+								<Analytics />
 							</div>
 						</body>
 					</MusicProvider>

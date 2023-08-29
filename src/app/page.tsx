@@ -1,7 +1,7 @@
 'use client';
 
 import SliderImage from '@/src/components/slide/slider-image';
-import {useContext, useEffect, useState} from 'react';
+import {useContext} from 'react';
 import {MusicContext, MusicContextType} from '@/src/context/music-context';
 import Music from '@/src/components/music/music';
 import Link from 'next/link';
@@ -10,7 +10,6 @@ import SliderMusic from '@/src/components/slide/slider-music';
 import {settingsSliderImage, settingsSliderMusic} from '@/src/variables/slider-setting';
 import {AppContext, AppContextType} from '../context/app-context';
 import '../styles/slider-custome.css';
-import {getData} from '../helpers/axiosClient';
 
 export default function Home() {
 	const musicContext = useContext(MusicContext) as MusicContextType;
