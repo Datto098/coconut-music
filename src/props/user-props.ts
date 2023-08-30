@@ -3,4 +3,5 @@ export interface UserProps {
 	username: string;
 	email: string;
 	isAdmin?: boolean;
+	isSignInWithGoogle?: boolean;
 }

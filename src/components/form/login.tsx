@@ -11,8 +11,8 @@ import {UserContext, UserContextType} from '@/src/context/user-context';
 export default function LoginForm(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
 	const {isActiveLoginForm, setIsActiveLoginForm, setIsActiveSignUpForm, theme} = appContext;
-	const userContent = useContext(UserContext) as UserContextType;
-	const {getUser} = userContent;
+	const userContext = useContext(UserContext) as UserContextType;
+	const {getUser, signInWithGoogle, handleGoogleLogout} = userContext;
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [disabled, setDisabled] = useState(true);
@@ -145,7 +145,9 @@ export default function LoginForm(params: any) {
 								Đăng nhập
 							</Button>
 							<Button
-								onClick={() => {}}
+								onClick={() => {
+									signInWithGoogle();
+								}}
 								primary
 								className='flex gap-1'
 							>

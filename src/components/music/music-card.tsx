@@ -33,6 +33,7 @@ export default function MusicCard(params: MusicProps) {
 						rounded
 						onClick={async () => {
 							if (user.userId !== '') {
+								console.log(mucisId);
 								const response = await postData('/api/music/my-favorite', {
 									songId: mucisId,
 									userId: user.userId,

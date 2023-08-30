@@ -9,7 +9,6 @@ const favoriteSchema = new mongoose.Schema(
 		song_id: {
 			type: String,
 			required: [true, 'Please provide a song id'],
-			unique: true,
 		},
 	},
 	{
