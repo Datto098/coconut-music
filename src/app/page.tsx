@@ -9,11 +9,10 @@ import Button from '@/src/components/button/button';
 import SliderMusic from '@/src/components/slide/slider-music';
 import {settingsSliderImage, settingsSliderMusic} from '@/src/variables/slider-setting';
 import {AppContext, AppContextType} from '../context/app-context';
-import '../styles/slider-custome.css';
-import {getData, postData} from '../helpers/axiosClient';
+import {postData} from '../helpers/axiosClient';
 import {MusicDataProps} from '../props/music-props';
-import MusicCard from '../components/music/music-card';
 import HistoryCard from '../components/music/history-card';
+import '../styles/slider-custome.css';
 
 export default function Home() {
 	const musicContext = useContext(MusicContext) as MusicContextType;

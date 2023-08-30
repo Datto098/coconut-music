@@ -7,16 +7,78 @@ import {AppContext, AppContextType} from '@/src/context/app-context';
 import {postData} from '@/src/helpers/axiosClient';
 import {toast} from 'react-hot-toast';
 import {UserContext, UserContextType} from '@/src/context/user-context';
+import {GoogleAuthProvider} from 'firebase/auth';
+import {signInWithPopup, signOut} from 'firebase/auth';
+import {auth} from '@/src/firebase/config';
 
 export default function LoginForm(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
 	const {isActiveLoginForm, setIsActiveLoginForm, setIsActiveSignUpForm, theme} = appContext;
 	const userContext = useContext(UserContext) as UserContextType;
-	const {getUser, signInWithGoogle, handleGoogleLogout} = userContext;
+	const {getUser, setUser} = userContext;
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [disabled, setDisabled] = useState(true);
 	const [isFetchingData, setIsFetchingData] = useState(false);
+
+	// Sign in with google account
+	const signInWithGoogle = () => {
+		const provider = new GoogleAuthProvider();
+		provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+		signInWithPopup(auth, provider)
+			.then(async (result) => {
+				const user = result.user;
+				if (user.displayName && user.email && user.uid) {
+					const response = await postData('/api/users/signup', {
+						email: user.email,
+						password: user.email,
+						username: user.displayName,
+					});
+					if (response.success && response.message === 'Sign up successfully') {
+						const response = await postData('/api/users/login', {
+							email: user.email,
+							password: user.email,
+						});
+					} else {
+						const response = await postData('/api/users/login', {
+							email: user.email,
+							password: user.email,
+						});
+					}
+					getUser();
+					toast.success('Đăng nhập thành công');
+					setIsActiveLoginForm(false);
+				}
+			})
+			.catch((error) => {
+				// Handle Errors here.
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				console.log(`${errorCode}: ${errorMessage}`);
+				// The email of the user's account used.
+				const email = error.customData.email;
+				console.log(email);
+				// The AuthCredential type that was used.
+				const credential = GoogleAuthProvider.credentialFromError(error);
+				console.log(credential);
+			});
+	};
+
+	// logout google account
+	const handleGoogleLogout = () => {
+		signOut(auth)
+			.then(() => {
+				setUser({
+					userId: '',
+					username: '',
+					email: '',
+					isSignInWithGoogle: false,
+				});
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
 
 	// handle signup
 	const handleLogin = async () => {

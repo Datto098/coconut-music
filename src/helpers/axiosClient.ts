@@ -7,7 +7,6 @@ export const getData = async (url: string, callback: any) => {
 				'Content-Type': 'text/plain;charset=utf-8',
 			},
 		});
-		// console.log(response);
 		if (response.data.success) {
 			callback(response.data.data);
 		}

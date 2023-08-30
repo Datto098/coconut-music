@@ -232,7 +232,6 @@ export default function UploadForm(params: any) {
 						id='img-file'
 						onChange={(e: any) => {
 							const file = e.target.files[0];
-							console.log(file.type);
 							if (
 								file.type === 'image/jpeg' ||
 								file.type === 'image/jpg' ||
