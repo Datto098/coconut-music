@@ -156,3 +156,11 @@
     transform: translateY(0);
     opacity: 1;
 }
+
+.music .animate-playing {
+    display: none;
+}
+
+.play-list .music .animate-playing {
+    display: block !important;
+}

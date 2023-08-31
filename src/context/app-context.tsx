@@ -58,6 +58,16 @@ export default function AppProvider(params: any) {
 	}, []);
 
 	useEffect(() => {
+		if (isMobile) {
+			if (isActiveHeader) {
+				setIsActivePlaylist(false);
+			} else if (isActivePlaylist) {
+				setIsActiveHeader(false);
+			}
+		}
+	}, [isActiveHeader, isActivePlaylist, isMobile]);
+
+	useEffect(() => {
 		localStorage.setItem('theme', theme);
 		document.querySelector('body')?.setAttribute('data-theme', theme);
 	}, [theme]);

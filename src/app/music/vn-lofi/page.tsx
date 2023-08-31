@@ -8,14 +8,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {useContext, useEffect, useState} from 'react';
 
-export default function FavoritePage(params: any) {
+export default function TrendingPage(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
 	const {theme} = appContext;
-
 	const [playlist, setPlayList] = useState([]);
 
 	useEffect(() => {
-		getData('/api/music/new-music?_limit=100', setPlayList);
+		getData('/api/music/vn-lofi?_limit=100', setPlayList);
 	}, []);
 
 	return (
@@ -43,10 +42,12 @@ export default function FavoritePage(params: any) {
 								<CaretLeftOutlined />
 							</Link>
 						</Button>
-						<span className='py-2 px-4 rounded-lg bg-[var(--text-primary)] text-[var(--background)]'>Top New Song</span>
+						<span className='py-2 px-4 rounded-lg bg-[var(--text-primary)] text-[var(--background)]'>
+							Top Lofi Việt
+						</span>
 					</div>
 					<div className='h-full flex flex-col justify-end'>
-						<h1 className='page-music-title max-[1024px]:text-[2rem] max-[830px]:py-2'>Bài hát mới nổi hàng đầu</h1>
+						<h1 className='page-music-title max-[1024px]:text-[2rem] max-[830px]:py-2'>Bài hát hàng đầu</h1>
 						<p className='text-[var(--text-secondary)]'>
 							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias obcaecati ipsum voluptate quas aliquid
 							voluptas sit earum doloribus, facilis repudiandae maxime corrupti accusamus delectus pariatur nemo

@@ -91,7 +91,7 @@ export default function FavoritePage(params: any) {
 									/>
 								</div>
 								<div className='w-[20%] max-[830px]:hidden'>999+</div>
-								<div className='w-[20%] max-[830px]:hidden'>Coconut Album</div>
+								<div className='w-[20%] max-[830px]:hidden'>Coconut Playlist</div>
 								<div>{music.time_format}</div>
 							</div>
 						);

@@ -17,7 +17,7 @@ import LoadingPage from '../components/loading/loadingPage';
 
 export default function Home() {
 	const musicContext = useContext(MusicContext) as MusicContextType;
-	const {trendingMusic, newMusic, favoriteMusic, topViewMusic, slideData} = musicContext;
+	const {trendingMusic, newMusic, favoriteMusic, topViewMusic, vnLofiMusic, slideData} = musicContext;
 
 	const appContext = useContext(AppContext) as AppContextType;
 	const {theme, searchValue, isActiveLoadingPage} = appContext;
@@ -175,6 +175,27 @@ export default function Home() {
 								Xem tất cả
 							</Link>
 						</Button>
+					</div>
+					<div className='section-wrapper'>
+						<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] flex items-center justify-between sec-title'>
+							Nhạc Việt (Lofi Ver)
+							<Link
+								href='/music/vn-lofi'
+								className='text-sm font-thin text-[var(--text-secondary)] flex items-center justify-center gap-1'
+							>
+								Xem tất cả
+							</Link>
+						</h2>
+						<div className=''>
+							{vnLofiMusic && (
+								<SliderMusic
+									settings={settingsSliderMusic}
+									slideData={vnLofiMusic}
+									type='vn-lofi'
+									className=''
+								/>
+							)}
+						</div>
 					</div>
 				</>
 			) : (

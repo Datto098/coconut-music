@@ -323,7 +323,7 @@ export default function Player(params: any) {
 					<div className='flex items-center justify-center gap-3'>
 						<span className='text-sm text-[var(--text-secondary)]'>{formatTimePlay(Math.round(currentTimePlay))}</span>
 						<div className=''>
-							<div className='process w-[642px] max-[1240px]:max-w-[460px] max-[640px]:max-w-[300px]'>
+							<div className='process w-[642px] max-[1240px]:max-w-[460px] max-[640px]:max-w-[300px] max-[440px]:max-w-[240px]'>
 								<div className='slider-bar'>
 									<div
 										className='slide-process'

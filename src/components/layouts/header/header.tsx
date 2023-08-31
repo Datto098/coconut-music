@@ -12,10 +12,18 @@ import Link from 'next/link';
 import '../../../styles/header.css';
 
 export default function Header(params: any) {
-	const appContext = useContext(AppContext) as AppContextType;
 	const [logoImageSrc, setLogoImageSrc] = useState('/coconut-logo.png');
-	const {setIsActiveHeader, setIsActiveLoginForm, theme, setTheme, setIsActivePlayer, searchValue, setSearchValue} =
-		appContext;
+	const appContext = useContext(AppContext) as AppContextType;
+	const {
+		isMobile,
+		setIsActiveHeader,
+		setIsActiveLoginForm,
+		theme,
+		setTheme,
+		setIsActivePlayer,
+		searchValue,
+		setSearchValue,
+	} = appContext;
 	const userContext = useContext(UserContext) as UserContextType;
 	const {user} = userContext;
 
@@ -69,30 +77,34 @@ export default function Header(params: any) {
 				<div className='other-action'>
 					<div className='group-action'>
 						<div className='action flex items-center gap-2'>
-							<Button
-								rounded
-								onClick={() => {
-									setIsActivePlayer((prev) => (prev === false ? true : false));
-								}}
-							>
-								<ControlOutlined />
-							</Button>
-							<Button
-								className=''
-								rounded
-								onClick={() => {
-									setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-								}}
-							>
-								<BgColorsOutlined />
-							</Button>
-							<Button
+							{!isMobile && (
+								<>
+									<Button
+										rounded
+										onClick={() => {
+											setIsActivePlayer((prev) => (prev === false ? true : false));
+										}}
+									>
+										<ControlOutlined />
+									</Button>
+									<Button
+										className=''
+										rounded
+										onClick={() => {
+											setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+										}}
+									>
+										<BgColorsOutlined />
+									</Button>
+								</>
+							)}
+							{/* <Button
 								className=''
 								rounded
 								onClick={() => {}}
 							>
 								<BellOutlined />
-							</Button>
+							</Button> */}
 							<div
 								className='cursor-pointer'
 								data-tooltip-id='my-tooltip-logout'

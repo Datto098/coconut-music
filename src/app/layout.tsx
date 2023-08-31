@@ -13,6 +13,7 @@ import {Analytics} from '@vercel/analytics/react';
 import './globals.css';
 import '../styles/home.css';
 import '../styles/custome.css';
+import MobileButtonGroup from '../components/button/mobile-group-btn';
 
 export const metadata: Metadata = {
 	title: 'Coconut MP3 - Dịch vụ nghe nhạc trực tuyến',
@@ -41,6 +42,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 								<SidebarRight />
 								<Player />
 								<Analytics />
+								<MobileButtonGroup />
 							</div>
 						</body>
 					</MusicProvider>

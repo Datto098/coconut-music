@@ -18,6 +18,8 @@
     background-color: var(--purple);
     border-radius: 200px;
     border: 1px solid var(--purple);
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .btn-style.btn-rounded {

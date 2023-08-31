@@ -30,36 +30,49 @@ function Music(params: MusicProps) {
 					height={60}
 					className='overflow-hidden object-cover w-[60px] h-[60px] max-[830px]:w-[50px] max-[830px]:h-[50px]'
 				/>
+				<div className='absolute animate-playing bottom-0 left-0 right-0'>
+					{playing.mucisId === mucisId && (
+						<div className='music-waves'>
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					)}
+				</div>
 				<div className='player absolute bg-[rgba(0,0,0,0.5)] top-0 left-0 w-full bottom-0 transition-all rounded-lg duration-300 ease-linear hidden'>
-					<Button
-						rounded
-						onClick={() => {
-							if (playing.mucisId !== mucisId) {
-								clearPlayer();
-								setPlaying({
-									imageMusic,
-									mucisId,
-									singerName,
-									musicSrc,
-									musicName,
-									category,
-									timeFormat,
-									index,
-									type,
-								});
-								setIsPlaying(true);
-								if (user.userId !== '') {
-									postData('/api/music/history', {
-										songId: mucisId,
-										userId: user.userId,
+					{playing.mucisId !== mucisId && (
+						<Button
+							rounded
+							onClick={() => {
+								if (playing.mucisId !== mucisId) {
+									clearPlayer();
+									setPlaying({
+										imageMusic,
+										mucisId,
+										singerName,
+										musicSrc,
+										musicName,
+										category,
+										timeFormat,
+										index,
+										type,
 									});
+									setIsPlaying(true);
+									if (user.userId !== '') {
+										postData('/api/music/history', {
+											songId: mucisId,
+											userId: user.userId,
+										});
+									}
 								}
-							}
-						}}
-						className='transition-all duration-300 ease-linear p-4  w-[44px] h-[44px] text-[20px] rounded-full flex items-center justify-center'
-					>
-						<PlayCircleOutlined />
-					</Button>
+							}}
+							className='transition-all duration-300 ease-linear p-4  w-[44px] h-[44px] text-[20px] rounded-full flex items-center justify-center'
+						>
+							<PlayCircleOutlined />
+						</Button>
+					)}
 				</div>
 			</div>
 			<div className='music-infor flex flex-col'>

@@ -13,6 +13,8 @@ export type MusicContextType = {
 	setNewMusic: React.Dispatch<React.SetStateAction<any[]>>;
 	favoriteMusic: any[];
 	setFavoriteMusic: React.Dispatch<React.SetStateAction<any[]>>;
+	vnLofiMusic: any[];
+	setVNLofiMusic: React.Dispatch<React.SetStateAction<any[]>>;
 	topViewMusic: any[];
 	setTopViewMusic: React.Dispatch<React.SetStateAction<any[]>>;
 	currentTimePlay: number;
@@ -64,6 +66,7 @@ export default function MusicProvider(params: any) {
 	const [volume, setVolume] = useState<number>(1);
 	const [playlist, setPlayList] = useState<any[]>([]);
 	const [slideData, setSlideData] = useState<any[]>([]);
+	const [vnLofiMusic, setVNLofiMusic] = useState<any[]>([]);
 
 	useEffect(() => {
 		if (playing.mucisId !== '') {
@@ -126,6 +129,7 @@ export default function MusicProvider(params: any) {
 		await getData('/api/music/new-music', setNewMusic);
 		await getData('/api/music/favorite', setFavoriteMusic);
 		await getData('/api/music/top-view', setTopViewMusic);
+		await getData('/api/music/vn-lofi', setVNLofiMusic);
 	};
 
 	useEffect(() => {
@@ -164,6 +168,8 @@ export default function MusicProvider(params: any) {
 			setPlayList,
 			slideData,
 			setSlideData,
+			vnLofiMusic,
+			setVNLofiMusic,
 		}),
 		[
 			playing,
@@ -195,6 +201,8 @@ export default function MusicProvider(params: any) {
 			setPlayList,
 			slideData,
 			setSlideData,
+			vnLofiMusic,
+			setVNLofiMusic,
 		]
 	);
 	return (

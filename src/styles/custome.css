@@ -82,6 +82,7 @@
 }
 
 .loading {
+    z-index: 11;
     position: fixed;
     background-color: var(--background);
     color: (var(--text-primary));
@@ -117,5 +118,69 @@
 @keyframes ball {
     100% {
         transform: translateY(-20px);
+    }
+}
+
+.music-waves {
+    position: relative;
+}
+
+.music-waves span {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    bottom: 0;
+    background: #000;
+    animation: waves 0.5s infinite ease;
+}
+
+.music-waves span:nth-child(1) {
+    animation-delay: 0.3s;
+    background: #ff8c00;
+}
+
+.music-waves span:nth-child(2) {
+    margin-left: 7px;
+    animation-delay: 0.4s;
+    background: #ffff00;
+}
+
+.music-waves span:nth-child(3) {
+    margin-left: 14px;
+    animation-delay: 0.6s;
+    background: #26d53a;
+}
+
+.music-waves span:nth-child(4) {
+    margin-left: 21px;
+    animation-delay: 0.8s;
+    background: #26e6a3;
+}
+
+.music-waves span:nth-child(5) {
+    margin-left: 28px;
+    animation-delay: 1s;
+    background: #1da8e2;
+}
+
+@keyframes waves {
+    0% {
+        height: 5px;
+    }
+
+    30% {
+        height: 15px;
+    }
+
+    60% {
+        height: 20px;
+    }
+
+    80% {
+        height: 15px;
+    }
+
+    100% {
+        height: 5px;
     }
 }

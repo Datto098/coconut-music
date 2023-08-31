@@ -41,8 +41,7 @@
   --body-background: #e9e9e9;
   --linear-bg: linear-gradient(45deg, #fff, #fff, #fff);
   --gray: #fff;
-  --player: radial-gradient(circle at -8.9% 51.2%, #27ae60 0%, #27ae60 15.9%, #51c581 15.9%, #82e0a9 24.4%, #fff 24.5%, #eee 66%);
-
+  --player: radial-gradient(circle at 6.1% -234.8%, #27ae60 0%, #27ae60 17.9%, #51c581 0, #80d0c7 24.4%, #fff 24.5%, #eee 66%);
 }
 
 * {
