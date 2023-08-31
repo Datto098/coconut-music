@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import {useContext, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import Input from '@/src/components/input/input';
 import Button from '@/src/components/button/button';
 import {AppContext, AppContextType} from '@/src/context/app-context';
@@ -13,10 +13,19 @@ import '../../../styles/header.css';
 
 export default function Header(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
+	const [logoImageSrc, setLogoImageSrc] = useState('/coconut-logo.png');
 	const {setIsActiveHeader, setIsActiveLoginForm, theme, setTheme, setIsActivePlayer, searchValue, setSearchValue} =
 		appContext;
 	const userContext = useContext(UserContext) as UserContextType;
 	const {user} = userContext;
+
+	useEffect(() => {
+		if (theme !== 'dark') {
+			setLogoImageSrc('/coconut-logo-dark.png');
+		} else {
+			setLogoImageSrc('/coconut-logo.png');
+		}
+	}, [theme]);
 
 	return (
 		<>
@@ -37,7 +46,7 @@ export default function Header(params: any) {
 				</Button>
 				<div className='logo max-[1024px]:hidden'>
 					<Image
-						src={theme === 'dark' ? '/coconut-logo.png' : '/coconut-logo-dark.png'}
+						src={logoImageSrc}
 						width={144}
 						height={50}
 						alt='coconut mp3'

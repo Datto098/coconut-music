@@ -19,9 +19,12 @@
   --body-background: #090909;
   --linear-bg: linear-gradient(45deg, #090909, #242424, #121212);
   --gray: transparent;
-  --player: radial-gradient(circle at -8.9% 51.2%, rgb(255, 124, 0) 0%, rgb(255, 124, 0) 15.9%, rgb(255, 163, 77) 15.9%, rgb(255, 163, 77) 24.4%, #242424 24.5%, #121212 66%);
+  --player: radial-gradient(circle at -8.9% 51.2%, #0093E9 0%, #0093E9 15.9%, #80D0C7 15.9%, #80D0C7 24.4%, #242424 24.5%, #121212 66%);
 }
 
+/* 
+    --player: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+*/
 
 [data-theme="light"] {
   --brown: #fff;

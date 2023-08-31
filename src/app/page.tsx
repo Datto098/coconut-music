@@ -13,13 +13,14 @@ import {postData} from '../helpers/axiosClient';
 import {MusicDataProps} from '../props/music-props';
 import HistoryCard from '../components/music/history-card';
 import '../styles/slider-custome.css';
+import LoadingPage from '../components/loading/loadingPage';
 
 export default function Home() {
 	const musicContext = useContext(MusicContext) as MusicContextType;
 	const {trendingMusic, newMusic, favoriteMusic, topViewMusic, slideData} = musicContext;
 
 	const appContext = useContext(AppContext) as AppContextType;
-	const {theme, searchValue} = appContext;
+	const {theme, searchValue, isActiveLoadingPage} = appContext;
 	const [resultSearch, setResultSearch] = useState<MusicDataProps[]>([]);
 
 	const handleSearch = async () => {
@@ -38,6 +39,9 @@ export default function Home() {
 		handleSearch();
 	}, [searchValue]);
 
+	if (isActiveLoadingPage) {
+		return <LoadingPage />;
+	}
 	return (
 		<div
 			className='content-wrapper p-4 pb-[200px]'
@@ -194,25 +198,27 @@ export default function Home() {
 							<div className='p-2'>Không tìm thấy kết quả nào</div>
 						)}
 					</div>
-					<div className='w-[30%]'>
+					<div className='w-[60%] '>
 						<h3 className='text-xl p-2 font-semibold'>Bài hát</h3>
-						{resultSearch.length > 0 &&
-							resultSearch.map((music: MusicDataProps, index: number) => {
-								return (
-									<Music
-										key={music._id}
-										imageMusic={music.image_music}
-										musicName={music.name_music}
-										mucisId={music._id}
-										musicSrc={music.src_music}
-										category={music.category}
-										singerName={music.name_singer}
-										timeFormat={music.time_format}
-										index={index}
-										type={music.type}
-									/>
-								);
-							})}
+						<div className='grid grid-cols-2'>
+							{resultSearch.length > 0 &&
+								resultSearch.map((music: MusicDataProps, index: number) => {
+									return (
+										<Music
+											key={music._id}
+											imageMusic={music.image_music}
+											musicName={music.name_music}
+											mucisId={music._id}
+											musicSrc={music.src_music}
+											category={music.category}
+											singerName={music.name_singer}
+											timeFormat={music.time_format}
+											index={index}
+											type={music.type}
+										/>
+									);
+								})}
+						</div>
 					</div>
 				</div>
 			)}

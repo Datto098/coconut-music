@@ -10,6 +10,8 @@ export type AppContextType = {
 	setIsActiveLoginForm: React.Dispatch<React.SetStateAction<boolean>>;
 	isActiveSignUpForm: boolean;
 	setIsActiveSignUpForm: React.Dispatch<React.SetStateAction<boolean>>;
+	isActiveLoadingPage: boolean;
+	setIsActiveLoadingPage: React.Dispatch<React.SetStateAction<boolean>>;
 	isActiveUploadForm: boolean;
 	setIsActiveUploadForm: React.Dispatch<React.SetStateAction<boolean>>;
 	isMobile: boolean;
@@ -24,8 +26,9 @@ export type AppContextType = {
 
 export const AppContext = createContext<AppContextType | undefined>(undefined);
 
+const themeStorage = typeof window !== 'undefined' ? localStorage.getItem('theme') || undefined : undefined;
+
 export default function AppProvider(params: any) {
-	const themeStorage = typeof window !== 'undefined' ? localStorage.getItem('theme') || undefined : undefined;
 	const {children} = params;
 	const [isMobile, setIsMobile] = useState<boolean>(false);
 	const [isActiveLoginForm, setIsActiveLoginForm] = useState<boolean>(false);
@@ -34,21 +37,28 @@ export default function AppProvider(params: any) {
 	const [isActivePlaylist, setIsActivePlaylist] = useState<boolean>(false);
 	const [isActivePlayer, setIsActivePlayer] = useState<boolean>(false);
 	const [isActiveHeader, setIsActiveHeader] = useState<boolean>(true);
-	const [theme, setTheme] = useState<string>(themeStorage ? themeStorage : 'dark');
+	const [theme, setTheme] = useState<string>(themeStorage || 'dark');
 	const [searchValue, setSearchValue] = useState('');
+	const [isActiveLoadingPage, setIsActiveLoadingPage] = useState(true);
+
 	useEffect(() => {
 		if (window.innerWidth <= 1240) {
 			setIsMobile(true);
 			setIsActiveHeader(false);
 		}
+		const timer = setTimeout(() => {
+			setIsActiveLoadingPage(false);
+		}, 3000);
+
+		timer;
+
+		return () => {
+			clearTimeout(timer);
+		};
 	}, []);
 
 	useEffect(() => {
 		localStorage.setItem('theme', theme);
-		const storage = localStorage.getItem('theme');
-	}, [theme]);
-
-	useEffect(() => {
 		document.querySelector('body')?.setAttribute('data-theme', theme);
 	}, [theme]);
 
@@ -72,6 +82,8 @@ export default function AppProvider(params: any) {
 			setIsActivePlayer,
 			searchValue,
 			setSearchValue,
+			isActiveLoadingPage,
+			setIsActiveLoadingPage,
 		}),
 		[
 			isActiveHeader,
@@ -92,6 +104,8 @@ export default function AppProvider(params: any) {
 			setIsActivePlayer,
 			searchValue,
 			setSearchValue,
+			isActiveLoadingPage,
+			setIsActiveLoadingPage,
 		]
 	);
 	return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

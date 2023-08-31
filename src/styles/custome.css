@@ -80,3 +80,42 @@
         background-position: right -40px top 0;
     }
 }
+
+.loading {
+    position: fixed;
+    background-color: var(--background);
+    color: (var(--text-primary));
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-content .logo {
+    overflow: hidden;
+    animation: ball 1s cubic-bezier(0.075, 0.82, 0.165, 1) infinite alternate;
+}
+
+.loading .text-loading {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    animation: toTop all 1s ease;
+}
+
+@keyframes ball {
+    100% {
+        transform: translateY(-20px);
+    }
+}
