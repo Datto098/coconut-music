@@ -5,9 +5,12 @@ import {AppContext, AppContextType} from '@/src/context/app-context';
 import {useContext} from 'react';
 export default function MobileButtonGroup(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
-	const {setTheme, setIsActivePlayer} = appContext;
+	const {setTheme, setIsActivePlayer, isMobile} = appContext;
 	return (
-		<div className='fixed bottom-[100px] right-2 translate-y-[-50%] p-2 bg-[var(--background)] shadow-lg rounded-xl'>
+		<div
+			style={isMobile ? {display: 'block'} : {display: 'none'}}
+			className='transition-all duration-300 ease-linear fixed bottom-[100px] right-2 translate-y-[-50%] p-2 bg-[var(--background)] shadow-lg rounded-xl'
+		>
 			<div className='flex flex-col gap-2 items-center justify-center'>
 				<Button
 					rounded
