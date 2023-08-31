@@ -19,7 +19,7 @@
   --body-background: #090909;
   --linear-bg: linear-gradient(45deg, #090909, #242424, #121212);
   --gray: transparent;
-  --player: radial-gradient(circle at -8.9% 51.2%, #0093E9 0%, #0093E9 15.9%, #80D0C7 15.9%, #80D0C7 24.4%, #242424 24.5%, #121212 66%);
+  --player: radial-gradient(circle at 6.1% -234.8%, #0093e9 0%, #0093e9 17.9%, #80d0c7 0, #80d0c7 24.4%, #242424 24.5%, #121212 66%);
 }
 
 /* 
