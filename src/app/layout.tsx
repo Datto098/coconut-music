@@ -28,6 +28,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 				name='google-site-verification'
 				content='UJNVArfXuGm3Bv3FOjQltZVNJObgVqzmSNDsux9KJeg'
 			/>
+			<script
+				async
+				src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1001155364506386'
+				crossOrigin='anonymous'
+			></script>
 			<AppProvider>
 				<UserProvider>
 					<MusicProvider>
