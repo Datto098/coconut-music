@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+// const randomCompare = () => {
+// 	return Math.random() - 0.5;
+// };
+
 export const getData = async (url: string, callback: any) => {
 	try {
 		const response: any = await axios.get(url, {
@@ -8,6 +12,7 @@ export const getData = async (url: string, callback: any) => {
 			},
 		});
 		if (response.data.success) {
+			// response.data.data.sort(randomCompare);
 			callback(response.data.data);
 		}
 	} catch (error: any) {

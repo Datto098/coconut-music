@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import {useContext, useEffect, useState} from 'react';
 import {AppContext, AppContextType} from '@/src/context/app-context';
-import '../../styles/custome.css';
+import '../../styles/custom.css';
 export default function LoadingPage(params: any) {
 	const appContext = useContext(AppContext) as AppContextType;
 	const {theme} = appContext;

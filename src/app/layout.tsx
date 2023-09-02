@@ -12,7 +12,7 @@ import Player from '../components/player/player';
 import {Analytics} from '@vercel/analytics/react';
 import './globals.css';
 import '../styles/home.css';
-import '../styles/custome.css';
+import '../styles/custom.css';
 import MobileButtonGroup from '../components/button/mobile-group-btn';
 
 export const metadata: Metadata = {
