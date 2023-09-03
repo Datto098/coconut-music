@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
 			thumbnail: videoThumbnail,
 		};
 
-		return NextResponse.json({message: 'Tải nhạc thành công', success: true, data: data}, {status: 201});
+		return NextResponse.json({message: 'Tải nhạc thành công', success: true, data: info}, {status: 201});
 	} catch (error: any) {
 		return NextResponse.json({message: error.message, success: false}, {status: 201});
 	}
