@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function NotFoundPage() {
 	return (
-		<div className='w-full h-[100vh] flex items-center justify-center'>
+		<div className='w-full h-[100vh] flex items-center justify-center bg-black'>
 			<Image
 				className='w-[400px] h-[400px]'
 				width={100}
