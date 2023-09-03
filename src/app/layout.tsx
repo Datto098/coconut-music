@@ -34,7 +34,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 				src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1001155364506386'
 				crossOrigin='anonymous'
 			></script>
-			<NotFoundPage />
+			<body>
+				<NotFoundPage />
+			</body>
 			{/* <AppProvider>
 				<UserProvider>
 					<MusicProvider>
