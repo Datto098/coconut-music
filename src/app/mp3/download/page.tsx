@@ -83,7 +83,7 @@ export default function DownloadMp3Page() {
 		<div className='content-wrapper p-4'>
 			{!isHidden && (
 				<div
-					className='fixed flex cursor-pointer flex-col gap-2 overflow-hidden flex-nowrap bottom-2 right-4 bg-[var(--text-primary)] text-[var(--background)] shadow-xl p-4 rounded-lg transition-all duration-300 ease-linear'
+					className='fixed z-[12] flex cursor-pointer flex-col gap-2 overflow-hidden flex-nowrap bottom-2 right-4 bg-[var(--text-primary)] text-[var(--background)] shadow-xl p-4 rounded-lg transition-all duration-300 ease-linear'
 					onClick={(e: any) => {
 						setIsHidden(true);
 					}}
