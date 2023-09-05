@@ -5,8 +5,8 @@ import {useContext, useEffect, useState} from 'react';
 import {AppContext, AppContextType} from '@/src/context/app-context';
 import {UserContext, UserContextType} from '@/src/context/user-context';
 import {toast} from 'react-hot-toast';
-import '../../styles/sidebar.css';
 import {usePathname} from 'next/navigation';
+import '../../styles/sidebar.css';
 
 export default function SidebarLeft(params: any) {
 	const router = usePathname();
@@ -48,12 +48,14 @@ export default function SidebarLeft(params: any) {
 						>
 							<Link
 								onClick={() => {
-									checkUser(menu.id);
 									if (isMobile) {
 										setIsActiveHeader(false);
 									}
+									if (menu.id !== 3) {
+										checkUser(menu.id);
+									}
 								}}
-								href={user.userId !== '' ? menu.link : '/'}
+								href={menu.id !== 3 ? (user.userId !== '' ? menu.link : '/') : menu.link}
 								className={`flex items-center gap-3 `}
 							>
 								{menu.icon}

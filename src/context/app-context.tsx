@@ -34,7 +34,7 @@ export default function AppProvider(params: any) {
 	const [isActiveLoginForm, setIsActiveLoginForm] = useState<boolean>(false);
 	const [isActiveSignUpForm, setIsActiveSignUpForm] = useState<boolean>(false);
 	const [isActiveUploadForm, setIsActiveUploadForm] = useState<boolean>(false);
-	const [isActivePlaylist, setIsActivePlaylist] = useState<boolean>(false);
+	const [isActivePlaylist, setIsActivePlaylist] = useState<boolean>(true);
 	const [isActivePlayer, setIsActivePlayer] = useState<boolean>(false);
 	const [isActiveHeader, setIsActiveHeader] = useState<boolean>(true);
 	const [theme, setTheme] = useState<string>(themeStorage || 'dark');
@@ -45,6 +45,7 @@ export default function AppProvider(params: any) {
 		if (window.innerWidth <= 1240) {
 			setIsMobile(true);
 			setIsActiveHeader(false);
+			setIsActivePlaylist(false);
 		}
 		const timer = setTimeout(() => {
 			setIsActiveLoadingPage(false);

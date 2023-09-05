@@ -97,3 +97,11 @@
 .btn-style.btn-outline:hover {
     background-color: transparent;
 }
+
+.btn-style.btn-small {
+    max-width: 35px;
+    max-height: 35px;
+    min-width: auto;
+    min-height: auto;
+    font-size: 14px;
+}

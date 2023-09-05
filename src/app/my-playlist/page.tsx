@@ -72,7 +72,7 @@ export default function UploadPage(params: any) {
 			<div
 				data-theme={theme}
 				className={`fixed top-[0] left-[0] bottom-[0] right-[0] bg-[var(--brown-rgba)] backdrop-filter backdrop-blur-sm  backdrop-contrast-100 transition-all duration-500 ease-linear
-					${isActiveUploadForm ? 'opacity-[1] z-[10]' : 'opacity-[0] z-[-1]'}
+					${isActiveUploadForm ? 'opacity-[1] z-[12]' : 'opacity-[0] z-[-1]'}
 					`}
 			></div>
 			<UploadForm type={activePlaylist.id !== 'unknown' && activePlaylist.id} />

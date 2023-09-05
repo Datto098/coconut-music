@@ -68,7 +68,7 @@ function Music(params: MusicProps) {
 									}
 								}
 							}}
-							className='transition-all duration-300 ease-linear p-4  w-[44px] h-[44px] text-[20px] rounded-full flex items-center justify-center'
+							className='btn-small transition-all duration-300 ease-linear p-4  w-[44px] h-[44px] text-[20px] rounded-full flex items-center justify-center'
 						>
 							<PlayCircleOutlined />
 						</Button>

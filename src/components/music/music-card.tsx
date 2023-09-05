@@ -30,6 +30,7 @@ export default function MusicCard(params: MusicProps) {
 				/>
 				<div className='player absolute bg-[rgba(0,0,0,0.5)] top-0 left-0 w-full bottom-0 transition-all duration-300 ease-linear rounded-lg hidden'>
 					<Button
+						className='btn-small'
 						rounded
 						onClick={async () => {
 							if (user.userId !== '') {
@@ -50,6 +51,7 @@ export default function MusicCard(params: MusicProps) {
 						<HeartOutlined />
 					</Button>
 					<Button
+						className='btn-small'
 						rounded
 						onClick={() => {
 							if (playing.mucisId !== mucisId) {

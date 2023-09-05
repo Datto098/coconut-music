@@ -30,6 +30,7 @@ export default function UploadPage(params: any) {
 	const router = useRouter();
 	const [mp3DownloadData, setMp3DownloadData] = useState<any>(null);
 	const [optionUpload, setOptionUpload] = useState('');
+	const [disabledBtnGetDataFromYTB, setDisabledBtnGetDataFromYTB] = useState(true);
 
 	const handleGetMp3DataFromYoutube = async () => {
 		if (youtubeUrl !== '') {
@@ -40,8 +41,8 @@ export default function UploadPage(params: any) {
 
 	useEffect(() => {
 		if (mp3DownloadData) {
-			setUrlMp3File(mp3DownloadData.mp3url);
-			setMusicName(mp3DownloadData.mp3title);
+			setUrlMp3File(mp3DownloadData.link);
+			setMusicName(mp3DownloadData.videoTitle);
 			setUrImgFile(mp3DownloadData.thumbnail);
 		}
 	}, [mp3DownloadData]);
@@ -125,6 +126,14 @@ export default function UploadPage(params: any) {
 	}, [isFetchingData]);
 
 	useEffect(() => {
+		if (youtubeUrl !== '') {
+			setDisabledBtnGetDataFromYTB(false);
+		} else {
+			setDisabledBtnGetDataFromYTB(true);
+		}
+	}, [youtubeUrl]);
+
+	useEffect(() => {
 		if (isSaved) {
 			if (optionUpload === 'upload') {
 				if (urlImgFile !== null && urlMp3File !== null) {
@@ -140,7 +149,7 @@ export default function UploadPage(params: any) {
 
 	return (
 		<div className='content-wrapper p-4 pb-[200px]'>
-			<div className='flex items-center justify-center gap-3'>
+			<div className='flex items-center justify-center gap-3 mb-4'>
 				<Button
 					primary
 					onClick={() => {
@@ -381,9 +390,12 @@ export default function UploadPage(params: any) {
 							</div>
 							<Button
 								isHandling={isFetchingData}
+								disabled={disabledBtnGetDataFromYTB}
 								onClick={() => {
-									setIsFetchingData(true);
-									handleGetMp3DataFromYoutube();
+									if (!disabledBtnGetDataFromYTB) {
+										setIsFetchingData(true);
+										handleGetMp3DataFromYoutube();
+									}
 								}}
 								primary
 							>

@@ -14,7 +14,6 @@ import './globals.css';
 import '../styles/home.css';
 import '../styles/custom.css';
 import MobileButtonGroup from '../components/button/mobile-group-btn';
-import NotFoundPage from '../components/404/NotFoundPage';
 
 export const metadata: Metadata = {
 	title: 'Coconut MP3 - Dịch vụ nghe nhạc trực tuyến',
@@ -34,10 +33,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 				src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1001155364506386'
 				crossOrigin='anonymous'
 			></script>
-			<body>
-				<NotFoundPage />
-			</body>
-			{/* <AppProvider>
+			<AppProvider>
 				<UserProvider>
 					<MusicProvider>
 						<body>
@@ -56,8 +52,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 						</body>
 					</MusicProvider>
 				</UserProvider>
-			</AppProvider> */}
+			</AppProvider>
 		</html>
 	);
 }
-// Redeploy

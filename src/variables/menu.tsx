@@ -1,4 +1,4 @@
-import {CloudUploadOutlined, HeartOutlined, HomeOutlined} from '@ant-design/icons';
+import {CloudUploadOutlined, HeartOutlined, HomeOutlined, YoutubeOutlined} from '@ant-design/icons';
 
 export const menus = [
 	{
@@ -18,5 +18,11 @@ export const menus = [
 		title: 'Nhạc của tôi',
 		link: '/my-playlist',
 		icon: <CloudUploadOutlined />,
+	},
+	{
+		id: 3,
+		title: 'Tải nhạc từ Youtube',
+		link: '/mp3/download',
+		icon: <YoutubeOutlined />,
 	},
 ];

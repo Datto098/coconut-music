@@ -49,6 +49,7 @@ export default function Home() {
 		>
 			{searchValue === '' ? (
 				<>
+					{/* Banner */}
 					<div className='section-wrapper'>
 						<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Hot</h2>
 						<SliderImage
@@ -57,32 +58,33 @@ export default function Home() {
 							className='max-h-[300px] overflow-hidden'
 						/>
 					</div>
+					{/* Music section */}
 					<div className='section-wrapper'>
 						<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] flex items-center justify-between sec-title'>
-							Xu Hướng
+							Nhạc Việt (Lofi Ver)
 							<Link
-								href='/music/trending'
+								href='/music/vn-lofi'
 								className='text-sm font-thin text-[var(--text-secondary)] flex items-center justify-center gap-1'
 							>
 								Xem tất cả
 							</Link>
 						</h2>
 						<div className=''>
-							{trendingMusic && (
+							{vnLofiMusic && (
 								<SliderMusic
 									settings={settingsSliderMusic}
-									slideData={trendingMusic}
-									type='trending'
+									slideData={vnLofiMusic}
+									type='vn-lofi'
 									className=''
 								/>
 							)}
 						</div>
 					</div>
 					<div className='section-wrapper'>
-						<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Mới Phát Hành</h2>
+						<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] sec-title'>Xu hướng</h2>
 						<div className='grid grid-cols-3 gap-2 max-[940px]:grid-cols-2 max-[580px]:grid-cols-1'>
-							{newMusic.length > 0
-								? newMusic.map((music, index) => {
+							{trendingMusic.length > 0
+								? trendingMusic.map((music, index) => {
 										return (
 											<Music
 												imageMusic={music.image_music}
@@ -110,7 +112,7 @@ export default function Home() {
 							className='my-4 mx-auto'
 						>
 							<Link
-								href='/music/new-music'
+								href='/music/trending'
 								className='text-sm font-thin flex items-center justify-center gap-1'
 							>
 								Xem tất cả
@@ -119,20 +121,21 @@ export default function Home() {
 					</div>
 					<div className='section-wrapper'>
 						<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] flex items-center justify-between sec-title'>
-							Top yêu thích
+							Mới Phát Hành
 							<Link
-								href='/music/favorite'
+								href='/music/new-music'
 								className='text-sm font-thin text-[var(--text-secondary)] flex items-center justify-center gap-1'
 							>
 								Xem tất cả
 							</Link>
 						</h2>
 						<div className=''>
-							{favoriteMusic && (
+							{newMusic && (
 								<SliderMusic
 									settings={settingsSliderMusic}
-									slideData={favoriteMusic}
-									type='favorite'
+									slideData={newMusic}
+									type='new-music'
+									className=''
 								/>
 							)}
 						</div>
@@ -178,21 +181,20 @@ export default function Home() {
 					</div>
 					<div className='section-wrapper'>
 						<h2 className='text-xl uppercase text-[var(--text-primary)] mb-3 font-[600] flex items-center justify-between sec-title'>
-							Nhạc Việt (Lofi Ver)
+							Top yêu thích
 							<Link
-								href='/music/vn-lofi'
+								href='/music/favorite'
 								className='text-sm font-thin text-[var(--text-secondary)] flex items-center justify-center gap-1'
 							>
 								Xem tất cả
 							</Link>
 						</h2>
 						<div className=''>
-							{vnLofiMusic && (
+							{favoriteMusic && (
 								<SliderMusic
 									settings={settingsSliderMusic}
-									slideData={vnLofiMusic}
-									type='vn-lofi'
-									className=''
+									slideData={favoriteMusic}
+									type='favorite'
 								/>
 							)}
 						</div>
