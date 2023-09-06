@@ -10,10 +10,10 @@ import SignUpForm from '../components/form/signUp';
 import SidebarRight from '../components/sidebar/sidebar-right';
 import Player from '../components/player/player';
 import {Analytics} from '@vercel/analytics/react';
-import './globals.css';
-import '../styles/home.css';
-import '../styles/custom.css';
 import MobileButtonGroup from '../components/button/mobile-group-btn';
+import '../styles/home.css';
+import './globals.css';
+import '../styles/custom.css';
 
 export const metadata: Metadata = {
 	title: 'Coconut MP3 - Dịch vụ nghe nhạc trực tuyến',
