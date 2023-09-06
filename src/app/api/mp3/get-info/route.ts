@@ -6,14 +6,14 @@ export async function GET(request: NextRequest) {
 	try {
 		// Get youtube url
 		const youtubeUrl = request.nextUrl.searchParams.get('url') as string;
-
+		console.log(youtubeUrl);
 		// Get information of video
 		const info = await ytdl.getInfo(youtubeUrl);
 		if (info) {
 			// Get name of video
 			const videoTitle = info.videoDetails.title;
 			// Get thumbnail url
-			const videoThumbnail = info.videoDetails.thumbnails[4].url;
+			const videoThumbnail = info.videoDetails.thumbnails[3].url;
 
 			const data = {
 				videoTitle: videoTitle,
@@ -29,6 +29,6 @@ export async function GET(request: NextRequest) {
 			);
 		}
 	} catch (error: any) {
-		return NextResponse.json({message: error.message, success: false}, {status: 500});
+		return NextResponse.json({message: error.message, success: false}, {status: 201});
 	}
 }

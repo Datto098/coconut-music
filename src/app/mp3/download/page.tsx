@@ -16,11 +16,6 @@ export default function DownloadMp3Page() {
 	const [process, setProcess] = useState<any>(0);
 	const [isHidden, setIsHidden] = useState(true);
 
-	const handleChildClick = () => {
-		// Khi phần tử con được nhấn, đặt isHidden thành true để ẩn phần tử cha
-		setIsHidden(true);
-	};
-
 	const handleDownloadMp3File = async () => {
 		if (youtubeUrl !== '') {
 			setIsFetchingData(true);
@@ -132,11 +127,11 @@ export default function DownloadMp3Page() {
 				<div className='mt-4 rounded-xl border border-dashed p-4 border-[var(--purple)]'>
 					<div className='flex items-center justify-center'>
 						<Image
-							className='w-[509px] h-[286.5px] rounded-xl max-[600px]:w-[100%]'
+							className='w-[336px] h-[188px] rounded-xl max-[600px]:w-[100%]'
 							src={data.videoThumbnail}
 							alt='download mp3 free'
-							width={509}
-							height={286.5}
+							width={336}
+							height={188}
 						/>
 					</div>
 					<div className='text-center mt-3 font-bold text-normal'>

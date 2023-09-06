@@ -1,10 +1,6 @@
 import axios from 'axios';
 import {toast} from 'react-hot-toast';
 
-// const randomCompare = () => {
-// 	return Math.random() - 0.5;
-// };
-
 export const getData = async (url: string, callback: any) => {
 	try {
 		const response: any = await axios.get(url, {
@@ -13,7 +9,6 @@ export const getData = async (url: string, callback: any) => {
 			},
 		});
 		if (response.data.success) {
-			// response.data.data.sort(randomCompare);
 			callback(response.data.data);
 		} else {
 			toast.error(response.data.message);
