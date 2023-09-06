@@ -67,6 +67,12 @@ export default function DownloadMp3Page() {
 	};
 
 	useEffect(() => {
+		if (data) {
+			setProcess(0);
+		}
+	}, [data]);
+
+	useEffect(() => {
 		if (youtubeUrl !== '') {
 			setDisabledBtnGetDataFromYTB(false);
 		} else {

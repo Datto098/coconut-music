@@ -59,7 +59,7 @@ export default function SidebarLeft(params: any) {
 								className={`flex items-center gap-3 `}
 							>
 								{menu.icon}
-								{menu.title}
+								<span className='text-normal text-[16px] flex items-center justify-center'>{menu.title}</span>
 							</Link>
 						</li>
 					);
